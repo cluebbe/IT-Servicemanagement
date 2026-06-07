@@ -252,6 +252,9 @@ Der **Change Management-Prozess** stellt sicher, dass Veränderungen auf **kontr
 - **Normal Change:** Muss den Change Advisory Board (CAB) durchlaufen; Planung, Risikoabschätzung, Genehmigung
 - **Emergency Change:** Sofortmassnahme bei kritischem Incident; nachträgliche Dokumentation und CAB-Review
 
+**Was ist der Change Advisory Board (CAB)?**
+Der CAB ist ein **beratendes und genehmigendes Gremium**, das Normal Changes vor der Umsetzung bewertet und freigibt. Es vereint Fach-, Infrastruktur-, Business- und ggf. Security-Vertreter, um **Risiko, Auswirkung und Abhängigkeiten** einer Änderung gemeinsam zu beurteilen. Der CAB *führt Changes nicht selbst durch*, sondern entscheidet, ob, wann und unter welchen Auflagen sie umgesetzt werden dürfen. So wird verhindert, dass riskante Eingriffe ungeprüft in die Produktion gelangen. (Wie ein CAB konkret zusammengesetzt wird, erarbeitet ihr in Aufgabe 3.2.)
+
 ---
 
 ### Szenario: Die unkontrollierten Notfall-Änderungen
