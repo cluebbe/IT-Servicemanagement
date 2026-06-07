@@ -1,7 +1,7 @@
 # 🏦 ITSM Workshop: Praxisfall „Cantara Bank AG"
 
 > **Zielgruppe:** Teilnehmende mit Grundkenntnissen in IT Service Management  
-> **Dauer:** ca. 3–4 Stunden (inkl. Gruppenarbeit & Diskussion)  
+> **Dauer:** ca. 3–4 Stunden  
 > **Format:** Gemischte Einzel- und Gruppenaufgaben mit ausklappbaren Teillösungen
 
 ---
@@ -69,7 +69,7 @@ So kann z. B. ein Handelsraum eine 24×7-Variante mit höherer SLA-Klasse erhalt
 
 ---
 
-### Aufgabe 1.1 – BITS identifizieren (Einzelarbeit, 10 min)
+### Aufgabe 1.1 – BITS identifizieren
 
 Identifiziere anhand der Ausgangslage mind. **5 Business IT Services**, die die Cantara Bank AG betreibt. Ordne sie dem jeweiligen **Hauptdienstleistungselement** (Managed-Arbeitsplatz oder Managed-Anwendungen) zu und schlage sinnvolle **Varianten** vor.
 
@@ -98,7 +98,7 @@ Identifiziere anhand der Ausgangslage mind. **5 Business IT Services**, die die 
 
 ---
 
-### Aufgabe 1.2 – IT Services zuordnen (Gruppenarbeit, 15 min)
+### Aufgabe 1.2 – IT Services zuordnen
 
 Der CoreBanking 360 BITS bricht zusammen, wenn der darunterliegende Datenbankserver nicht erreichbar ist. Erstelle eine vereinfachte **Service-Abhängigkeitskarte** für den „CoreBanking 360 BITS" und ordne den verwendeten IT Services die korrekte **ITS-Kategorie** zu.
 
@@ -163,7 +163,7 @@ Jeden Montag zwischen 08:15 und 08:45 Uhr fällt „CoreBanking 360" für 20–4
 
 ---
 
-### Aufgabe 2.1 – Incident vs. Problem abgrenzen (Einzelarbeit, 10 min)
+### Aufgabe 2.1 – Incident vs. Problem abgrenzen
 
 Beantworte folgende Fragen:
 
@@ -187,7 +187,7 @@ Beantworte folgende Fragen:
 
 ---
 
-### Aufgabe 2.2 – Eskalationspfad definieren (Gruppenarbeit, 20 min)
+### Aufgabe 2.2 – Eskalationspfad definieren
 
 Basierend auf dem Szenario und der Organisationsstruktur der Cantara Bank AG: Entwerft einen **Incident-Eskalationspfad** für einen kritischen CoreBanking-Ausfall (Priority 1).
 
@@ -260,7 +260,7 @@ Die IT-Abteilung führt mehrmals pro Woche Änderungen am Produktionssystem durc
 
 ---
 
-### Aufgabe 3.1 – Change-Typen zuordnen (Einzelarbeit, 10 min)
+### Aufgabe 3.1 – Change-Typen zuordnen
 
 Ordne folgende Änderungsvorhaben der Cantara Bank AG dem richtigen **Change-Typ** zu und begründe deine Wahl:
 
@@ -289,7 +289,7 @@ Ordne folgende Änderungsvorhaben der Cantara Bank AG dem richtigen **Change-Typ
 
 ---
 
-### Aufgabe 3.2 – Change Advisory Board (CAB) aufbauen (Gruppenarbeit, 15 min)
+### Aufgabe 3.2 – Change Advisory Board (CAB) aufbauen
 
 Der CIO der Cantara Bank AG beauftragt euch, einen **Change Advisory Board (CAB)** zu konzipieren.
 
@@ -343,7 +343,7 @@ Das **Service Level Agreement (SLA)** hält die vereinbarten Serviceziele zwisch
 
 ---
 
-### Aufgabe 4.1 – SLA-Ziele definieren (Gruppenarbeit, 20 min)
+### Aufgabe 4.1 – SLA-Ziele definieren
 
 Definiert ein **SLA-Entwurf** für den Business IT Service „CoreBanking 360 BITS" der Cantara Bank AG. Berücksichtigt dabei die unterschiedlichen Anforderungen der Leistungsbeziehergruppen:
 
@@ -396,7 +396,7 @@ Ein Storage-Server fällt aus. Die IT weiss nicht, welche 15 Anwendungen darauf 
 
 ---
 
-### Aufgabe 5.1 – CMDB-Struktur konzipieren (Gruppenarbeit, 25 min)
+### Aufgabe 5.1 – CMDB-Struktur konzipieren
 
 Konzipiert eine vereinfachte **CMDB-Hierarchie** für die Cantara Bank AG. Definiert:
 
@@ -447,7 +447,7 @@ Mit einer vollständig gepflegten CMDB wäre beim Ausfall von „SAN-01" sofort 
 
 ## 🧩 Modul 6 – Gesamtreflexion & Massnahmenplan
 
-### Aufgabe 6.1 – ITSM-Reifegradanalyse (Gruppenarbeit, 20 min)
+### Aufgabe 6.1 – ITSM-Reifegradanalyse
 
 Bewertet den aktuellen ITSM-Reifegrad der Cantara Bank AG für jeden der folgenden Prozesse auf einer Skala von **0 (nicht vorhanden) bis 5 (optimiert)**. Begründet eure Einschätzung mit konkreten Aussagen aus der Ausgangslage.
 
@@ -478,7 +478,7 @@ Bewertet den aktuellen ITSM-Reifegrad der Cantara Bank AG für jeden der folgend
 
 ---
 
-### Aufgabe 6.2 – Roadmap für die ITSM-Einführung (Gruppenarbeit, 20 min)
+### Aufgabe 6.2 – Roadmap für die ITSM-Einführung
 
 Erstellt eine priorisierte **ITSM-Roadmap** für die nächsten 12 Monate der Cantara Bank AG. Berücksichtigt dabei:
 - Welche Prozesse haben den **höchsten Business-Impact**, wenn sie fehlen?
