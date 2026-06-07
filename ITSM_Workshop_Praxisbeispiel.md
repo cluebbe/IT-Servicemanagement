@@ -151,7 +151,7 @@ CoreBanking 360 BITS
 Im IT-Servicemanagement werden Incident Management und Problem Management klar voneinander abgegrenzt:
 
 - **Incident Management** zielt darauf ab, eine Störung **so schnell wie möglich** zu beheben und die Auswirkung auf den BITS zu minimieren.
-- **Problem Management** bezweckt, das **wiederholte Auftreten** von Incidents durch proaktive Massnahmen und die Ermittlung von Root Causes zu verhindern.
+- **Problem Management** bezweckt, das **wiederholte Auftreten** von Incidents durch proaktive Massnahmen und die Ermittlung von Grundursachen zu verhindern.
 - Beide Prozesse sind eng verzahnt: Ein Problem entsteht oft aus wiederkehrenden Incidents.
 
 ---
@@ -177,11 +177,11 @@ Beantworte folgende Fragen:
 
 1. **Incident:** Der wöchentliche Ausfall des CoreBanking 360 BITS (Nichtverfügbarkeit der Anwendung für Filialmitarbeitende) – jeder einzelne Ausfall ist ein eigenständiger Incident.
 
-2. **Problem:** Die unbekannte, wiederholte Ursache, die jeden Montag zur gleichen Zeit zum Ausfall führt. Das Problem ist die zugrundeliegende, noch nicht identifizierte Root Cause.
+2. **Problem:** Die unbekannte, wiederholte Ursache, die jeden Montag zur gleichen Zeit zum Ausfall führt. Das Problem ist die zugrundeliegende, noch nicht identifizierte Grundursache.
 
 3. **Warum falsch:** Durch das Schliessen des Incidents ohne Problemanalyse wird nur der **Symptom** behoben, nicht die Ursache. Das Incident wird sich mit Sicherheit wiederholen, was zu kontinuierlichen Service-Unterbrechungen, Produktivitätsverlust und Vertrauensverlust im Business führt. Incident Management ist für die schnelle Wiederherstellung zuständig – die Ursachenermittlung ist explizit Aufgabe des **Problem Managements**.
 
-4. **Known Error:** Sobald die Root Cause identifiziert ist (z.B. „Montags läuft ein Batch-Job, der alle DB-Verbindungen blockiert") und ein Workaround oder eine Lösung bekannt ist, wird das Problem zum **Known Error**. Der Known Error wird in der Known Error Database (KEDB) dokumentiert und ermöglicht dem Service Desk, bei erneutem Auftreten schneller zu reagieren.
+4. **Known Error:** Sobald die Grundursache identifiziert ist (z.B. „Montags läuft ein Batch-Job, der alle DB-Verbindungen blockiert") und ein Workaround oder eine Lösung bekannt ist, wird das Problem zum **Known Error**. Der Known Error wird in der Known Error Database (KEDB) dokumentiert und ermöglicht dem Service Desk, bei erneutem Auftreten schneller zu reagieren.
 
 </details>
 
@@ -196,6 +196,17 @@ Berücksichtigt dabei:
 - Wann wird eine **hierarchische Eskalation** ausgelöst?
 - Welche **Prozessrollen** sind beteiligt?
 - Welche **Zeitlimiten** (Reaction Time, Resolution Time) schlagt ihr vor?
+
+> **Wichtig – funktionale vs. hierarchische Eskalation:** Diese beiden Begriffe meinen unterschiedliche Dinge und dürfen nicht verwechselt werden.
+>
+> | | **Funktionale Eskalation** | **Hierarchische Eskalation** |
+> |---|---|---|
+> | Achse | Fach-Kompetenz / Spezialisierung | Führungs- und Entscheidungs**befugnis** |
+> | Beispiel | Level 1 → Level 2 → Level 3 | Incident Manager → IT-Leiter → CIO |
+> | Leitfrage | „Wer kann es technisch **lösen**?" | „Wer darf **entscheiden** / Ressourcen freigeben?" |
+> | Richtung | *seitwärts* zu anderen Spezialisten | *nach oben* in die Führung |
+>
+> Die Stufung **L1 → L2 → L3 ist trotz des Namens „Level" keine Hierarchie**: L2 ist nicht der Vorgesetzte von L1, sondern hat lediglich mehr Fachwissen. Die Störung wandert in Richtung des *Wissens*, das sie lösen kann – nicht die Karriereleiter hinauf. Erst wenn nicht mehr *Wissen*, sondern *Befugnis* fehlt (kritischer Business-Impact, Regulatorik-Risiko, Ressourcenfreigabe), greift die hierarchische Eskalation. Beide Achsen können **gleichzeitig** laufen.
 
 <details>
 <summary>💡 Teillösung Aufgabe 2.2</summary>
@@ -221,6 +232,10 @@ Berücksichtigt dabei:
 - Business Communication: alle 30 Minuten
 
 > **Hinweis:** Die hierarchische Eskalation ist kein Versagen – sie ist ein bewusstes Steuerungsinstrument, um Ressourcen freizuschalten und Entscheidungsträger einzubinden.
+>
+> **Funktional und hierarchisch laufen parallel – sie ersetzen sich nicht.** Wenn ab 45 min hierarchisch eskaliert wird, bleibt das Ticket technisch bei L3; der Spezialist arbeitet ununterbrochen weiter. Die Führungsebene debuggt nicht, sondern handelt auf der geschäftlichen Achse (Fallback aktivieren, Business/Aufsicht informieren, Emergency Change autorisieren). L3 wird dadurch **nicht abgeschnitten**.
+>
+> Im Gegenteil: Die hierarchische Eskalation kann **schon vor Ende der L3-Bearbeitung unterstützend wirken** – etwa indem sie zusätzliche Ressourcen freischaltet, die L3 helfen (z.B. Premium-Support des Herstellers aktivieren, weitere Spezialisten abziehen, Überstunden genehmigen). Löst L3 das Problem rechtzeitig, war die frühe Einbindung eine reine Vorsichtsmassnahme – verloren ist dabei nichts.
 
 </details>
 
@@ -310,7 +325,7 @@ Beantwortet folgende Fragen:
 **Emergency Changes:**
 - ECAB mit mind. Change Manager + 2 Fachvertretern genehmigt per Mail/Chat
 - Vollständige Dokumentation und reguläres CAB-Review innert 48 Stunden
-- Root Cause des auslösenden Incidents wird an Problem Management übergeben
+- Grundursache des auslösenden Incidents wird an Problem Management übergeben
 
 </details>
 
@@ -514,7 +529,7 @@ Erkläre folgende Begriffe ohne Hilfsmittel in 1–2 Sätzen:
 3. **Known Error**
 4. **Configuration Item (CI)**
 5. **Emergency Change**
-6. **Root Cause**
+6. **Grundursache**
 
 <details>
 <summary>💡 Musterdefinitionen</summary>
@@ -523,13 +538,13 @@ Erkläre folgende Begriffe ohne Hilfsmittel in 1–2 Sätzen:
 
 2. **SLA:** Ein formales Dokument zwischen IT-Leistungserbringer und Leistungsbezieher, das die vereinbarten Serviceziele (Verfügbarkeit, Reaktions- und Wiederherstellungszeiten, Service-Zeiten) verbindlich festlegt.
 
-3. **Known Error:** Ein Problem, dessen Root Cause bereits identifiziert wurde und für das ein Workaround oder eine definitive Lösung bekannt ist. Wird in der Known Error Database (KEDB) dokumentiert.
+3. **Known Error:** Ein Problem, dessen Grundursache bereits identifiziert wurde und für das ein Workaround oder eine definitive Lösung bekannt ist. Wird in der Known Error Database (KEDB) dokumentiert.
 
 4. **Configuration Item (CI):** Jedes verwaltete Element innerhalb der CMDB – von einem Business IT Service über einen Server bis hin zu einem Netzwerkkabel. CIs werden mit ihren Attributen und Beziehungen zueinander dokumentiert.
 
 5. **Emergency Change:** Eine dringende Änderung am Produktionssystem, die ausserhalb des regulären Change-Prozesses durchgeführt wird, um einen kritischen Incident zu beheben. Erfordert nachträgliche Dokumentation und CAB-Review.
 
-6. **Root Cause:** Die eigentliche, zugrundeliegende Ursache eines Problems oder Incidents – im Gegensatz zum Symptom. Die Ermittlung der Root Cause ist das Hauptziel des Problem Management-Prozesses.
+6. **Grundursache:** Die eigentliche, zugrundeliegende Ursache eines Problems oder Incidents – im Gegensatz zum Symptom. Die Ermittlung der Grundursache ist das Hauptziel des Problem Management-Prozesses.
 
 </details>
 
