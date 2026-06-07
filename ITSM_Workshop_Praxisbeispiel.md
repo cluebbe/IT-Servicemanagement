@@ -2,7 +2,6 @@
 
 > **Zielgruppe:** Teilnehmende mit Grundkenntnissen in IT Service Management  
 > **Dauer:** ca. 3–4 Stunden (inkl. Gruppenarbeit & Diskussion)  
-> **Grundlage:** K4.0047 – IT-Servicemanagement Theorieskript  
 > **Format:** Gemischte Einzel- und Gruppenaufgaben mit ausklappbaren Teillösungen
 
 ---
@@ -43,10 +42,30 @@ CIO
 
 ### Hintergrundinformation
 
-Laut Theorieskript (Kap. 1.1 & 1.2.2) wird zwischen **Business IT Services (BITS)** und **IT Services (ITS)** unterschieden:
+Im IT-Servicemanagement wird zwischen **Business IT Services (BITS)** und **IT Services (ITS)** unterschieden:
 
 - **BITS** sind die Leistungen, die der Leistungsbezieher (Business) direkt konsumiert und im SLA vereinbart.
 - **ITS** sind die darunter liegenden, technischen IT-Services (Plattform, Netzwerk, Storage, Anwendung), die für den Leistungsbezieher meist nicht direkt sichtbar sind.
+
+#### Hauptdienstleistungselemente
+
+Business IT Services lassen sich zwei übergeordneten **Hauptdienstleistungselementen** zuordnen. Das Unterscheidungskriterium ist *für wen* der Service gedacht ist:
+
+- **Managed-Arbeitsplatz:** die **horizontale** Standard-Arbeitsumgebung, die *jeder* Mitarbeitende mit seinem Arbeitsplatz erhält – z. B. Desktop/Laptop, Büroautomation (Mail & Collaboration), Drucken.
+- **Managed-Anwendungen:** die **vertikalen**, *fachspezifischen* Anwendungen, die nur bestimmte Rollen oder Abteilungen benötigen – z. B. ein Kernbanken- oder Trading-System.
+
+> **Faustregel:** „Bekommt das jeder mit seinem Seat?" → Managed-Arbeitsplatz. „Braucht das nur eine bestimmte Rolle?" → Managed-Anwendungen.
+
+#### Varianten
+
+Ein BITS wird oft in mehreren **Varianten** angeboten – also derselbe Service in unterschiedlichen Qualitäts- oder Funktionsstufen. Varianten unterscheiden sich durch:
+
+- **funktionale** Merkmale (z. B. Berechtigungen, Anzahl Applikationen) oder
+- **nicht-funktionale** Merkmale (z. B. Service-Zeit, Verfügbarkeit, Reaktionszeit).
+
+So kann z. B. ein Handelsraum eine 24×7-Variante mit höherer SLA-Klasse erhalten als eine Filiale.
+
+> **Tipp zum Vorgehen:** Um die BITS zu finden, frage dich bei jedem Hinweis in der Ausgangslage: *„Was benutzt hier ein Business-Nutzer tatsächlich?"* Die meisten Services stehen wörtlich im Falltext oder ergeben sich aus der Organisationsstruktur.
 
 ---
 
@@ -81,7 +100,12 @@ Identifiziere anhand der Ausgangslage mind. **5 Business IT Services**, die die 
 
 ### Aufgabe 1.2 – IT Services zuordnen (Gruppenarbeit, 15 min)
 
-Der CoreBanking 360 BITS bricht zusammen, wenn der darunterliegende Datenbankserver nicht erreichbar ist. Erstelle eine vereinfachte **Service-Abhängigkeitskarte** für den „CoreBanking 360 BITS" und ordne den verwendeten IT Services die korrekte **ITS-Hauptgruppe** (G1–G5 gemäss Theorieskript) zu.
+Der CoreBanking 360 BITS bricht zusammen, wenn der darunterliegende Datenbankserver nicht erreichbar ist. Erstelle eine vereinfachte **Service-Abhängigkeitskarte** für den „CoreBanking 360 BITS" und ordne den verwendeten IT Services die korrekte **ITS-Hauptgruppe** zu.
+
+> **Orientierung – ITS-Hauptgruppen:** IT Services lassen sich in mehrere Gruppen einteilen. Für diese Aufgabe genügt folgende vereinfachte Einteilung:
+> - **G1 Basis-ITS:** technische Grundlage (Server/Plattform, Storage, Netzwerk)
+> - **G2 Erweiterter ITS:** aufbauende technische Dienste (Datenbank, Middleware/App-Server)
+> - **G3 Anwendungsorientierter ITS:** Betrieb, Wartung und Support einer konkreten Anwendung
 
 ```
 CoreBanking 360 BITS
@@ -114,7 +138,7 @@ CoreBanking 360 BITS
 
 ### Hintergrundinformation
 
-Laut Theorieskript (Kap. 1.2.3 & 3.3.6/3.3.7):
+Im IT-Servicemanagement werden Incident Management und Problem Management klar voneinander abgegrenzt:
 
 - **Incident Management** zielt darauf ab, eine Störung **so schnell wie möglich** zu beheben und die Auswirkung auf den BITS zu minimieren.
 - **Problem Management** bezweckt, das **wiederholte Auftreten** von Incidents durch proaktive Massnahmen und die Ermittlung von Root Causes zu verhindern.
@@ -145,7 +169,7 @@ Beantworte folgende Fragen:
 
 2. **Problem:** Die unbekannte, wiederholte Ursache, die jeden Montag zur gleichen Zeit zum Ausfall führt. Das Problem ist die zugrundeliegende, noch nicht identifizierte Root Cause.
 
-3. **Warum falsch:** Durch das Schliessen des Incidents ohne Problemanalyse wird nur der **Symptom** behoben, nicht die Ursache. Das Incident wird sich mit Sicherheit wiederholen, was zu kontinuierlichen Service-Unterbrechungen, Produktivitätsverlust und Vertrauensverlust im Business führt. Gemäss Theorieskript ist Incident Management für die schnelle Wiederherstellung zuständig – die Ursachenermittlung ist explizit Aufgabe des **Problem Managements**.
+3. **Warum falsch:** Durch das Schliessen des Incidents ohne Problemanalyse wird nur der **Symptom** behoben, nicht die Ursache. Das Incident wird sich mit Sicherheit wiederholen, was zu kontinuierlichen Service-Unterbrechungen, Produktivitätsverlust und Vertrauensverlust im Business führt. Incident Management ist für die schnelle Wiederherstellung zuständig – die Ursachenermittlung ist explizit Aufgabe des **Problem Managements**.
 
 4. **Known Error:** Sobald die Root Cause identifiziert ist (z.B. „Montags läuft ein Batch-Job, der alle DB-Verbindungen blockiert") und ein Workaround oder eine Lösung bekannt ist, wird das Problem zum **Known Error**. Der Known Error wird in der Known Error Database (KEDB) dokumentiert und ermöglicht dem Service Desk, bei erneutem Auftreten schneller zu reagieren.
 
@@ -175,7 +199,7 @@ Berücksichtigt dabei:
 | **L3** | CoreBanking-Spezialist / Hersteller | Sourcecode-Analyse, DB-Tuning, Hersteller-Support einschalten | 30–90 min |
 | **Hierarch.** | Incident Manager → IT-Leiter → CIO | Eskalation wenn: L2 nach 30 min keine Lösung, Business-Impact kritisch, Medien-/Regulatorik-Risiko | Ab 45 min |
 
-**Prozessrollen laut Theorieskript:**
+**Typische Prozessrollen im Incident Management:**
 - **Incident-Erfasser** (Service Desk Agent): Ticket aufnehmen, Basisdaten erfassen
 - **Incident Analyst:** Analyse und Behebung
 - **Incident Queue Manager:** Sicherstellt, dass Incidents korrekt zugewiesen werden und SLA-Zeiten nicht überschritten werden
@@ -196,7 +220,7 @@ Berücksichtigt dabei:
 
 ### Hintergrundinformation
 
-Laut Theorieskript (Kap. 1.2.3 & 3.3.4) stellt der **Change Management-Prozess** sicher, dass Veränderungen auf **kontrollierte und nachvollziehbare Art** von der Entwicklung bis in die Produktion gelangen. Er schützt stabile Services vor unkontrollierten Eingriffen.
+Der **Change Management-Prozess** stellt sicher, dass Veränderungen auf **kontrollierte und nachvollziehbare Art** von der Entwicklung bis in die Produktion gelangen. Er schützt stabile Services vor unkontrollierten Eingriffen.
 
 **Change-Typen (typisch in ITSM-Frameworks):**
 - **Standard Change:** Vordefinierter, risikoarmer Change mit bekanntem Ablauf (z.B. Passwort-Reset, Software-Installation)
@@ -286,7 +310,7 @@ Beantwortet folgende Fragen:
 
 ### Hintergrundinformation
 
-Laut Theorieskript (Kap. 3.3.1) hält das **Service Level Agreement (SLA)** die vereinbarten Serviceziele zwischen Leistungserbringer (IT) und Leistungsbezieher (Business) fest. Es definiert:
+Das **Service Level Agreement (SLA)** hält die vereinbarten Serviceziele zwischen Leistungserbringer (IT) und Leistungsbezieher (Business) fest. Es definiert:
 - **Service-Zeit** (wann ist der Service verfügbar?)
 - **Verfügbarkeit** (z.B. 99,5% pro Monat)
 - **Reaktionszeit / Wiederherstellungszeit** bei Störungen
@@ -337,7 +361,7 @@ Füllt folgende Tabelle aus:
 
 ### Hintergrundinformation
 
-Laut Theorieskript (Kap. 3.3.5) verwaltet der **SACM-Prozess** alle Configuration Items (CIs) – vom Business IT Service bis zur physischen Infrastrukturkomponente – in der **Configuration Management Database (CMDB)**. Die CMDB erlaubt es, bei einem Incident sofort zu erkennen, welche Services und Leistungsbezieher betroffen sind.
+Der **SACM-Prozess** verwaltet alle Configuration Items (CIs) – vom Business IT Service bis zur physischen Infrastrukturkomponente – in der **Configuration Management Database (CMDB)**. Die CMDB erlaubt es, bei einem Incident sofort zu erkennen, welche Services und Leistungsbezieher betroffen sind.
 
 ---
 
@@ -501,4 +525,4 @@ Erkläre folgende Begriffe ohne Hilfsmittel in 1–2 Sätzen:
 
 ---
 
-> **Workshop-Ende** | Weiterführende Lektüre: K4.0047 Kap. 3.3 (Prozessdetails), insb. 3.3.4 (Change), 3.3.5 (SACM), 3.3.6 (Incident), 3.3.7 (Problem), 3.3.1 (SLM)
+> **Workshop-Ende**
