@@ -100,19 +100,24 @@ Identifiziere anhand der Ausgangslage mind. **5 Business IT Services**, die die 
 
 ### Aufgabe 1.2 – IT Services zuordnen (Gruppenarbeit, 15 min)
 
-Der CoreBanking 360 BITS bricht zusammen, wenn der darunterliegende Datenbankserver nicht erreichbar ist. Erstelle eine vereinfachte **Service-Abhängigkeitskarte** für den „CoreBanking 360 BITS" und ordne den verwendeten IT Services die korrekte **ITS-Hauptgruppe** zu.
+Der CoreBanking 360 BITS bricht zusammen, wenn der darunterliegende Datenbankserver nicht erreichbar ist. Erstelle eine vereinfachte **Service-Abhängigkeitskarte** für den „CoreBanking 360 BITS" und ordne den verwendeten IT Services die korrekte **ITS-Kategorie** zu.
 
-> **Orientierung – ITS-Hauptgruppen:** IT Services lassen sich in mehrere Gruppen einteilen. Für diese Aufgabe genügt folgende vereinfachte Einteilung:
-> - **G1 Basis-ITS:** technische Grundlage (Server/Plattform, Storage, Netzwerk)
-> - **G2 Erweiterter ITS:** aufbauende technische Dienste (Datenbank, Middleware/App-Server)
-> - **G3 Anwendungsorientierter ITS:** Betrieb, Wartung und Support einer konkreten Anwendung
+> **Orientierung – ITS-Kategorien:** IT Services lassen sich in mehrere Kategorien einteilen:
+> - **Basis-IT-Services:** technische Grundlage – Datacenter-, Network-, Storage- und Platform IT Services. Sie bilden die Grundvoraussetzung für alle darüberliegenden Services.
+> - **Erweiterte IT Services:** bauen auf den Basis-Services auf, z. B. Mail-, Database- und Print IT Services.
+> - **Anwendungsorientierte IT Services:** Wartung & Support von Geschäftsanwendungen (Application Maintenance & Support) sowie Anwendungsentwicklung (Application Development).
+> - **End-User-orientierte IT Services:** alles rund um den Arbeitsplatz des Anwenders – Workplace-bezogene IT Services sowie Service Desk & Onsite.
+> - **Unterstützende IT Services:** dienstübergreifende Services wie Event & Monitoring sowie Security IT Services.
+> - **Cloud IT Services:** aus der Cloud bezogene bzw. ausgelagerte (outgesourcte) IT Services – z. B. SaaS oder PaaS von Anbietern wie Microsoft Azure.
+>
+> Die ersten Kategorien bilden den vertikalen „Stack" unter einem BITS (Basis → Erweitert → Anwendung); unterstützende Services wirken quer dazu.
 
 ```
 CoreBanking 360 BITS
-  └── [ITS-Gruppe ?] ...
-  └── [ITS-Gruppe ?] ...
-  └── [ITS-Gruppe ?] ...
-  └── [ITS-Gruppe ?] ...
+  └── [ITS-Kategorie ?] ...
+  └── [ITS-Kategorie ?] ...
+  └── [ITS-Kategorie ?] ...
+  └── [ITS-Kategorie ?] ...
 ```
 
 <details>
@@ -120,13 +125,18 @@ CoreBanking 360 BITS
 
 ```
 CoreBanking 360 BITS
-  └── G3 Anwendungsorientierter ITS:  CoreBanking Application Maintenance & Support
-  └── G2 Erweiterter ITS:             Database IT Service (Oracle DB)
-  └── G2 Erweiterter ITS:             Middleware IT Service (App-Server)
-  └── G1 Basis-ITS:                   Platform IT Service (physische/virtuelle Server)
-  └── G1 Basis-ITS:                   Storage IT Service (SAN/NAS)
-  └── G1 Basis-ITS:                   Network IT Service (LAN/WAN zu Filialen)
+  └── Anwendungsorientierte IT Services:  CoreBanking Application Maintenance & Support
+  └── Erweiterte IT Services:             Database IT Service (Oracle DB)
+  └── Erweiterte IT Services:             Middleware/App-Server IT Service
+  └── Basis-IT-Services:                  Platform IT Service (physische/virtuelle Server)
+  └── Basis-IT-Services:                  Storage IT Service (SAN/NAS)
+  └── Basis-IT-Services:                  Network IT Service (LAN/WAN zu Filialen)
+  └── Unterstützende IT Services:         Security IT Service (Authentisierung/Login)
+  └── Unterstützende IT Services:         Event & Monitoring IT Service
+  └── End-User-orientierte IT Services:   Service Desk & Onsite (Anwender-Support)
 ```
+
+> **Hinweis zur Bewertung:** Die ersten sechs Einträge bilden den vertikalen Stack (Anwendung → Erweitert → Basis). Die letzten drei (Security, Monitoring, Service Desk) liegen quer dazu und unterstützen mehrere Schichten – Gruppen, die diese erkennen, denken bereits in Abhängigkeiten statt nur in Schichten.
 
 > **Wichtige Erkenntnis für den Praxisfall:** Der Serverausfall hat 15 Anwendungen getroffen, weil die IT keine dokumentierte Service-Abhängigkeitskarte führt. Dies ist ein klares Zeichen für fehlendes **Service Asset and Configuration Management (SACM)**.
 
