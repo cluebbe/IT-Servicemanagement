@@ -49,10 +49,12 @@ Im IT-Servicemanagement wird zwischen **Business IT Services (BITS)** und **IT S
 
 #### Hauptdienstleistungselemente
 
-Business IT Services lassen sich zwei übergeordneten **Hauptdienstleistungselementen** zuordnen. Das Unterscheidungskriterium ist *für wen* der Service gedacht ist:
+Die Informatikdienstleistung lässt sich in **fünf Hauptdienstleistungselemente** unterteilen: *Managed-Arbeitsplatz, Managed-Anwendungen, Anwendungsentwicklung, Informatikberatung* und *Informatikschulung*. Für die IT-Service-Management-Betrachtung – und damit für diesen Workshop – stehen die **beiden ersten** im Vordergrund. Das Unterscheidungskriterium ist *für wen* der Service gedacht ist:
 
 - **Managed-Arbeitsplatz:** die **horizontale** Standard-Arbeitsumgebung, die *jeder* Mitarbeitende mit seinem Arbeitsplatz erhält – z. B. Desktop/Laptop, Büroautomation (Mail & Collaboration), Drucken.
 - **Managed-Anwendungen:** die **vertikalen**, *fachspezifischen* Anwendungen, die nur bestimmte Rollen oder Abteilungen benötigen – z. B. ein Kernbanken- oder Trading-System.
+
+Die übrigen drei Elemente (Anwendungsentwicklung, Informatikberatung, Informatikschulung) sind hier nicht im Fokus, runden das Bild der IT-Leistungen aber ab.
 
 > **Faustregel:** „Bekommt das jeder mit seinem Seat?" → Managed-Arbeitsplatz. „Braucht das nur eine bestimmte Rolle?" → Managed-Anwendungen.
 
@@ -249,6 +251,80 @@ Nur auf CIO-Ebene zu entscheiden (Beispiele): Aktivierung des Geschäfts-Notfall
 
 ---
 
+### Aufgabe 2.3 – Prioritätsmatrix erstellen und Incidents einordnen
+
+In den bisherigen Aufgaben wurde mehrfach von einem **P1-Incident** gesprochen, ohne dass definiert ist, *was* einen Incident zu P1 macht. Genau diese Lücke schliesst ihr jetzt.
+
+Das Theorieskript empfiehlt zur Prioritätsbestimmung **Ansatz 1** (Abb. 3.20). Dieser kombiniert zwei Achsen, die sich direkt aus den BITS und der CMDB ableiten lassen:
+
+> **Priorität = Kritikalität des BITS × Anzahl betroffener Leistungsbezieher (Benutzer)**
+>
+> - **Kritikalität des BITS:** aus dem SLA – *Business-vital → Business-kritisch → Business-wichtig → Business-neutral*
+> - **Anzahl betroffener Benutzer:** Klassen *1–30 / 31–80 / 81–250 / >250*
+>
+> *Hinweis: Das Skript nennt auch einen Ansatz 2 (Dringlichkeit × Auswirkung), rät davon aber ab, weil die „Dringlichkeit" aus Anwendersicht fast immer hoch ist und damit schwer objektivierbar bleibt.*
+
+Optional kann eine dritte Achse, der **Auswirkungsgrad** (Tab. 3.14), die Priorität abschwächen:
+
+| Auswirkungsgrad | Bedeutung | Wirkung |
+|---|---|---|
+| betriebsverhindernd | Total-Ausfall, kein Arbeiten möglich | Priorität bleibt |
+| betriebsbehindernd | eingeschränkt nutzbar, Mehraufwand | +1 Prio-Stufe (max. P4) |
+| geringe Einschränkung | nur Teilfunktionen betroffen | +2 Prio-Stufen (max. P4) |
+
+**Teil A – Prioritätsmatrix ausfüllen:** Tragt in die Matrix die Prioritätsstufen **P1–P4** ein (P1 = höchste).
+
+| Kritikalität BITS ↓ \ Benutzer → | 1–30 | 31–80 | 81–250 | >250 |
+|---|---|---|---|---|
+| **Business-vital** | | | | |
+| **Business-kritisch** | | | | |
+| **Business-wichtig** | | | | |
+| **Business-neutral** | | | | |
+
+**Teil B – Incidents der Cantara Bank AG einordnen:** Bestimmt Kritikalität des betroffenen BITS, Anzahl Benutzer und die resultierende Priorität.
+
+| Incident | Kritikalität BITS | Anzahl Benutzer | Priorität |
+|---|---|---|---|
+| CoreBanking 360 fällt für alle Filialen komplett aus, der Handel steht still | | | |
+| Ein einzelner Trader hat während der Handelszeit keinen Zugriff auf sein Terminal | | | |
+| Das Mailsystem ist für die gesamte Bank stark verlangsamt, funktioniert aber noch | | | |
+| Ein Drucker im Back-Office ist defekt, ein Ersatzdrucker steht daneben | | | |
+
+<details>
+<summary>💡 Teillösung Aufgabe 2.3</summary>
+
+**Teil A – Prioritätsmatrix (beispielhafte Ausprägung):**
+
+| Kritikalität BITS ↓ \ Benutzer → | 1–30 | 31–80 | 81–250 | >250 |
+|---|---|---|---|---|
+| **Business-vital** | **P1** | **P1** | **P1** | **P1** |
+| **Business-kritisch** | **P2** | **P2** | **P1** | **P1** |
+| **Business-wichtig** | **P3** | **P3** | **P2** | **P2** |
+| **Business-neutral** | **P4** | **P4** | **P3** | **P3** |
+
+> Das Skript betont ausdrücklich: *Welche Kombination welche Priorität ergibt, ist unternehmensspezifisch* und muss im Incident-Prozess festgelegt werden. Obige Belegung ist eine plausible Ausprägung für die Cantara Bank, kein fixer Standard.
+
+**Teil B – Einordnung:**
+
+| Incident | Kritikalität BITS | Anzahl Benutzer | Priorität |
+|---|---|---|---|
+| CoreBanking 360 für alle Filialen komplett aus, Handel steht | Business-vital | >250 | **P1** |
+| Einzelner Trader ohne Terminal-Zugriff während Handelszeit | Business-vital (Trading) | 1–30 | **P1** |
+| Mailsystem bankweit stark verlangsamt, aber funktionsfähig | Business-wichtig | >250 | **P2** → mit Auswirkungsgrad *betriebsbehindernd* (+1): **P3** |
+| Defekter Drucker mit Ersatz daneben | Business-neutral | 1–30 | **P4** |
+
+**Wichtige Erkenntnisse:**
+- **Die Service-Kritikalität dominiert, nicht die Benutzerzahl.** Ein *einzelner* Trader auf dem business-vitalen Trading-BITS ergibt **P1** – obwohl nur eine Person betroffen ist. Die naive Logik „wenige Nutzer = niedrige Priorität" greift zu kurz.
+- Umgekehrt ist ein business-neutraler Service (Drucker) selbst mit Workaround maximal P4.
+- Der **Auswirkungsgrad** wirkt nur abschwächend: Das langsame, aber nutzbare Mailsystem (betriebsbehindernd) rutscht von P2 auf P3 – bei Total-Ausfall bliebe es P2.
+- Die so ermittelte Priorität steuert direkt die **SLA-Ziele und den Eskalationspfad** aus Aufgabe 2.2: P1 = Reaction 15 min / Resolution 2 h + sofortige Eskalation, P4 = keine oder erst sehr späte Eskalation.
+
+> **Hinweis:** Die Kritikalitäts-Einstufung der BITS stammt idealerweise aus den **SLAs**, die Benutzerzahl aus der **CMDB** – beides fehlt der Cantara Bank bislang, weshalb die Priorisierung heute willkürlich erfolgt.
+
+</details>
+
+---
+
 ## 🧩 Modul 3 – Change Management
 
 ### Hintergrundinformation
@@ -342,6 +418,39 @@ Beantwortet folgende Fragen:
 
 ---
 
+### Aufgabe 3.3 – Change-Prozessrollen zuordnen
+
+Beim Rollout des **CoreBanking-Release 4.2** (ein Normal Change) sind mehrere Prozessrollen beteiligt. Ordnet jede Tätigkeit der richtigen Change-Rolle zu (**Change Owner, Change Analyst, Change Approver, Change Manager**) und überlegt, **welche Stelle/welches Team der Cantara Bank AG** die Rolle übernehmen sollte.
+
+| Tätigkeit | Change-Rolle | Bei Cantara: wer? |
+|---|---|---|
+| Nimmt den RfC an, prüft ihn auf Vollständigkeit und weist ihn zu | | |
+| Beurteilt die technischen Auswirkungen auf die Trading-Systeme | | |
+| Erstellt den detaillierten Einführungs- und Rollback-Plan | | |
+| Erteilt die finale Freigabe im Gremium | | |
+| Leitet das CAB-Meeting und führt nach Go-live das PIR durch | | |
+
+**Zusatzfrage:** Was passiert mit dieser Rollenverteilung, wenn der Change als **Emergency Change** läuft?
+
+<details>
+<summary>💡 Teillösung Aufgabe 3.3</summary>
+
+| Tätigkeit | Change-Rolle | Bei Cantara (Beispiel) |
+|---|---|---|
+| RfC annehmen, prüfen, zuweisen | **Change Manager** | IT-Governance & Prozesse (zentrale Stelle) |
+| Technische Auswirkungen beurteilen | **Change Analyst** | Spezialist Trading-Systeme / Anwendungsbetrieb |
+| Einführungs- und Rollback-Plan erstellen | **Change Owner** | Verantwortlicher aus Anwendungsentwicklung CoreBanking |
+| Finale Freigabe im Gremium | **Change Approver (= CAB)** | CAB als höchste Genehmigungsstelle |
+| CAB leiten + PIR durchführen | **Change Manager** | IT-Governance & Prozesse |
+
+**Reihenfolge im Normalfall:** Change Manager (Annahme/Zuweisung) → Change Owner (Analyse & Plan, unterstützt vom Change Analyst) → Change Approver/CAB (Freigabe) → Umsetzung → Change Manager (PIR & Abschluss).
+
+**Bei Emergency Change:** Wegen Zeitdruck/Abwesenheiten übernimmt oft **eine Person mehrere Rollen** (z. B. Change Owner = Change Analyst). Die Genehmigung erfolgt durch das **ECAB** statt durch das reguläre CAB; Dokumentation und CAB-Review werden **nachgelagert** durchgeführt.
+
+</details>
+
+---
+
 ## 🧩 Modul 4 – Service Level Management & SLA
 
 ### Hintergrundinformation
@@ -418,37 +527,38 @@ Konzipiert eine vereinfachte **CMDB-Hierarchie** für die Cantara Bank AG. Defin
 <details>
 <summary>💡 Teillösung Aufgabe 5.1</summary>
 
-**CI-Typen Hierarchie (von oben nach unten):**
+**CI-Hierarchie (von oben nach unten):** Die Ebenen folgen dem Service-Modell und den **ITS-Kategorien aus Aufgabe 1.2**; die unterste Ebene bildet die technischen CIs nach den **CI-Haupttypen des Skripts** (Service, Hardware, Software, Gebäude) ab.
 
 ```
-Level 1: Business IT Service (BITS)
+Ebene 1 – Business IT Service (BITS)
   └─ z.B. "CoreBanking 360 BITS", "Mail & Collaboration BITS"
 
-Level 2: Anwendungs-IT Service
-  └─ z.B. "CoreBanking Application ITS", "Oracle DB ITS"
+Ebene 2 – Anwendungsorientierter IT Service
+  └─ z.B. "CoreBanking AMS ITS" (Application Maintenance & Support)
 
-Level 3: Plattform-IT Service
-  └─ z.B. "Server-Cluster Applikation", "Virtual Machine CoreBanking"
+Ebene 3 – Erweiterter IT Service
+  └─ z.B. "Oracle Database ITS"
 
-Level 4: IT-Komponente (Hardware/Software)
-  └─ z.B. physischer Server "SRV-APP-01", Betriebssystem "RHEL 8.5"
+Ebene 4 – Basis-IT Service
+  └─ z.B. "Platform/Server ITS", "Storage ITS", "Network ITS"
 
-Level 5: Infrastruktur-Komponente
-  └─ z.B. Storage-Array "SAN-01", Switch "NETSW-DC-03"
+Ebene 5 – Technische CIs (Haupttypen: Hardware / Software / Gebäude)
+  └─ z.B. Server "SRV-APP-01" (HW), Betriebssystem "RHEL 8.5" (SW),
+     Storage-Array "SAN-01" (HW), Switch "NETSW-DC-03" (HW), DC-Gebäude
 ```
 
 **Relevante Beziehungstypen:**
-- `hängt ab von` (BITS → ITS → Komponente)
+- `hängt ab von` (BITS → ITS → technisches CI)
 - `läuft auf` (Anwendung → Server → Storage)
 - `verbunden mit` (Server → Netzwerk-Switch)
-- `gehört zu` (Komponente → Leistungsbezieher-Gruppe)
+- `gehört zu` (CI → Leistungsbezieher-Gruppe)
 
 **Nutzen beim Serverausfall:**
-Mit einer vollständig gepflegten CMDB wäre beim Ausfall von „SAN-01" sofort ersichtlich:
-- Welche Server von diesem Storage abhängen (Level 4→5 Beziehung)
-- Welche Anwendungen auf diesen Servern laufen (Level 3→4)
-- Welche BITS davon betroffen sind (Level 1→2→3)
-- Welche Leistungsbezieher-Gruppen sofort kommuniziert werden müssen
+Mit einer vollständig gepflegten CMDB wäre beim Ausfall des Storage-CI „SAN-01" (Ebene 5, Hardware) über die `hängt ab von`-Beziehungen sofort ersichtlich:
+- Welche Basis-IT Services (Platform/Server) das Storage nutzen (Ebene 5 → 4)
+- Welche erweiterten und anwendungsorientierten IT Services darauf aufbauen (Ebene 4 → 3 → 2)
+- Welche BITS – und damit welche Leistungsbezieher-Gruppen – betroffen sind (Ebene 2 → 1)
+- Welche Gruppen sofort proaktiv informiert werden müssen
 
 **Ergebnis:** Statt 2 Stunden blinder Reaktion hätte die IT innerhalb von 5 Minuten eine vollständige Impact-Liste gehabt und proaktiv kommunizieren können.
 
@@ -458,32 +568,40 @@ Mit einer vollständig gepflegten CMDB wäre beim Ausfall von „SAN-01" sofort 
 
 ## 🧩 Modul 6 – Gesamtreflexion & Massnahmenplan
 
-### Aufgabe 6.1 – ITSM-Reifegradanalyse
+### Aufgabe 6.1 – ITSM-Einführungsstand analysieren
 
-Bewertet den aktuellen ITSM-Reifegrad der Cantara Bank AG für jeden der folgenden Prozesse auf einer Skala von **0 (nicht vorhanden) bis 5 (optimiert)**. Begründet eure Einschätzung mit konkreten Aussagen aus der Ausgangslage.
+Bewertet, wie weit jeder Prozess der Cantara Bank AG im **Einführungsmodell des Skripts** (Abb. 2.1, Abschnitt 2.1) bereits gekommen ist. Das Modell unterscheidet vier **Einführungsbereiche** und – innerhalb der Definitionsphase – drei **Levels**:
 
-| ITSM-Prozess | Reifegrad (0–5) | Begründung |
-|---|---|---|
-| Incident Management | | |
-| Problem Management | | |
-| Change Management | | |
-| Service Level Management | | |
-| Service Asset & Config. Mgmt. | | |
-| Service Request Management | | |
-| Service Catalog Management | | |
+> **Einführungsbereiche:** Dokumentation · Prozess · Tool/Hilfsmittel · Organisation
+>
+> **Definitions-Levels:** Level 1 = Prozessbeschreibung (Ziele, Schritte, Rollen, KPIs) · Level 2 = Umsetzungsgrundlagen (Tools, Rollen-Zuteilung, Rot/Gelb/Grün-KPIs) · Level 3 = Arbeitsinstruktionen (WINs) + Tool-Workflow
+
+Bewertet je Prozess die vier Bereiche (✓ vorhanden / ◑ teilweise / ✗ fehlt) und bestimmt die **erreichte Stufe** (noch nicht begonnen · vor Level 1 · Level 1 · Level 2 · Level 3 · produktiv etabliert). Begründet mit konkreten Aussagen aus der Ausgangslage.
+
+| ITSM-Prozess | Doku | Prozess | Tool | Organisation | Erreichte Stufe |
+|---|---|---|---|---|---|
+| Incident Management | | | | | |
+| Problem Management | | | | | |
+| Change Management | | | | | |
+| Service Level Management | | | | | |
+| Service Asset & Config. Mgmt. | | | | | |
+| Service Request Management | | | | | |
+| Service Catalog Management | | | | | |
 
 <details>
 <summary>💡 Teillösung Aufgabe 6.1</summary>
 
-| ITSM-Prozess | Reifegrad | Begründung |
-|---|---|---|
-| **Incident Management** | **2** | Incidents werden behandelt (Service Desk existiert), aber kein strukturierter Eskalationspfad, keine SLA-Überwachung, keine Verbindung zu Problem Management |
-| **Problem Management** | **0–1** | Praktisch nicht vorhanden. Wiederkehrende Incidents werden nicht analysiert. Keine KEDB. |
-| **Change Management** | **1** | Notfall-Änderungen finden statt, aber unkontrolliert, ohne Risikoabschätzung, kein CAB. |
-| **Service Level Management** | **1** | Keine definierten SLAs vorhanden. Kein systematisches SLA-Monitoring oder -Reporting. |
-| **SACM** | **0–1** | Keine CMDB erkennbar. Beim Serverausfall war unbekannt, welche Services betroffen waren. |
-| **Service Request Management** | **1** | Anfragen per E-Mail, unstrukturiert, keine definierten Bearbeitungszeiten. |
-| **Service Catalog Management** | **0** | Kein Servicekatalog vorhanden (explizit erwähnt in der Ausgangslage). |
+| ITSM-Prozess | Doku | Prozess | Tool | Org. | Erreichte Stufe | Begründung |
+|---|---|---|---|---|---|---|
+| **Incident Management** | ✗ | ◑ | ◑ | ✓ | **vor Level 1** | Service Desk (Organisation) und Ticket-Aufnahme existieren, aber keine dokumentierte Prozessbeschreibung, keine Rollen/KPIs/Eskalation definiert |
+| **Problem Management** | ✗ | ✗ | ✗ | ✗ | **nicht begonnen** | Wiederkehrende Incidents werden nicht analysiert, keine KEDB |
+| **Change Management** | ✗ | ◑ | ✗ | ◑ | **vor Level 1** | Changes werden durchgeführt (Entwickler), aber unkontrolliert – ohne Dokumentation, Tool-Workflow oder CAB |
+| **Service Level Management** | ✗ | ✗ | ✗ | ✗ | **nicht begonnen** | Keine definierten SLAs, kein Monitoring/Reporting |
+| **SACM** | ✗ | ✗ | ✗ | ✗ | **nicht begonnen** | Keine CMDB; beim Serverausfall war unbekannt, welche Services betroffen waren |
+| **Service Request Management** | ✗ | ◑ | ✗ | ◑ | **vor Level 1** | Anfragen werden bearbeitet, aber per E-Mail, unstrukturiert, ohne Prozess/Tool |
+| **Service Catalog Management** | ✗ | ✗ | ✗ | ✗ | **nicht begonnen** | Kein Servicekatalog vorhanden (explizit in der Ausgangslage) |
+
+**Kernbotschaft:** Nach dem Einführungsmodell des Skripts hat Cantara bei **keinem** Prozess auch nur **Level 1** (eine vollständige Prozessbeschreibung) erreicht. Drei Aktivitäten werden zwar *gelebt* (Incident, Change, Service Request), aber ohne Dokumentation, Prozessdefinition und Tool-Unterstützung – im Sinne des Modells sind sie damit **noch nicht eingeführt**, sondern bestenfalls „vor Level 1". Das unterstreicht den dringenden Handlungsbedarf.
 
 </details>
 
@@ -499,31 +617,39 @@ Erstellt eine priorisierte **ITSM-Roadmap** für die nächsten 12 Monate der Can
 <details>
 <summary>💡 Teillösung Aufgabe 6.2</summary>
 
-**Empfohlene Prioritätenreihenfolge:**
+**Empfohlene Einführungsreihenfolge (nach dem Phasenmodell des Skripts, Abschnitt 2.3):**
 
-**Phase 1 – Quick Wins (Monate 1–3):**
-1. **Change Management (Basis):** Einfachen Change-Prozess mit CAB einführen. Sofortiger Schutz vor unkontrollierten Änderungen.
-2. **Incident Management verbessern:** Klare Prioritätsmatrix, Eskalationspfade, SLA-Ziele definieren.
-3. **Service Catalog (Basiskatalog):** Wichtigste BITS dokumentieren → Leistungsbezieher wissen, was sie bestellen können.
+> Das Skript gruppiert die Prozesse nach Wichtigkeit in drei Phasen (Phase 1 = „sehr wichtig", Phase 2 = „wichtig", Phase 3 = „empfehlenswert"). *Innerhalb* einer Phase gibt es laut Skript **keine bewertete Reihenfolge** – die zeitliche Sequenzierung legt das Unternehmen anhand seiner Schmerzpunkte fest.
 
-**Phase 2 – Fundament legen (Monate 4–8):**
-4. **SLA / Service Level Management:** SLA-Entwürfe je BITS verhandeln und unterzeichnen.
-5. **CMDB (Basiskonfiguration):** Kritische CIs und Abhängigkeiten erfassen (CoreBanking, Trading, Mail).
-6. **Problem Management:** Problem-Prozess aufsetzen, KEDB aufbauen, wöchentliche Problem-Review.
+**Phase 1 – Fundament („sehr wichtig"):** Alle sechs Kernprozesse gehören laut Skript in Phase 1:
+1. **Service Level Management** – mind. rudimentär, damit die IT weiss, was der Leistungsbezieher fordert.
+2. **Change Management** – sofortiger Schutz vor unkontrollierten Änderungen (CAB).
+3. **Service Asset & Configuration Management** – CMDB als Grundlage für Impact-Analysen.
+4. **Incident Management** – Prioritätsmatrix (→ Aufgabe 2.3), Eskalationspfade (→ Aufgabe 2.2).
+5. **Problem Management** – KEDB, Ursachenanalyse wiederkehrender Incidents.
+6. **Service Request Management** – strukturierte, nachverfolgbare Anfragen.
 
-**Phase 3 – Optimierung (Monate 9–12):**
-7. **Service Request Management:** Standardisierte Formulare, automatisierte Workflows.
-8. **Continual Improvement:** Monatliche SLA-Reports, Prozess-KPI-Reviews, Optimierungsrunden.
+*Pragmatische Sequenzierung für Cantara innerhalb Phase 1:* Change + Incident zuerst (akute Schmerzpunkte), parallel SLM rudimentär; dann SACM/CMDB als Voraussetzung für die Impact-Analyse; anschliessend Problem Management und Service Request Management.
 
-**KPIs für die ersten 3 Monate:**
+**Phase 2 – Ausbau („wichtig"):**
+- **Service Catalog Management** – Leistungsbezieher wissen, was sie bestellen können.
+- *(weitere Skript-Phase-2-Prozesse ausserhalb des Workshop-Scopes: u.a. IT Financial, Release, Information Security, Availability, Capacity, Operational Level, Event, Access, Risk Management)*
+
+**Phase 3 – Optimierung („empfehlenswert"):**
+- **Continual Improvement** – fortlaufende Optimierung über KPI-Reviews.
+- *(weitere: Business Relationship, Service Portfolio, Supplier, Knowledge, IT Architecture Management …)*
+
+> **Abweichungs-Hinweis:** Eine rein „Quick-Wins"-orientierte Roadmap würde den **Servicekatalog** gern vorziehen (schnell sichtbarer Nutzen) und **Service Request Management** nach hinten schieben. Das Skript ordnet beides anders ein (Catalog → Phase 2, Service Request → Phase 1). Diese Roadmap folgt bewusst der **Skript-Einteilung**.
+
+**KPIs für die ersten 3 Monate (Fokus Phase-1-Start: Change + Incident + SLM):**
 
 | KPI | Ziel |
 |---|---|
 | Anteil Changes mit vollständiger Dokumentation | > 90% |
-| Anzahl ungeplanter Produktions-Ausfälle durch unkontrollierte Changes | < 1/Monat |
+| Ungeplante Produktions-Ausfälle durch unkontrollierte Changes | < 1/Monat |
 | Incident P1 Wiederherstellungszeit (Ø) | < 2 Stunden |
-| Anzahl Incidents ohne Schliessungsnachweis nach 5 Tagen | < 5% |
-| Servicekatalog veröffentlicht (Ja/Nein) | Ja |
+| Incidents ohne Schliessungsnachweis nach 5 Tagen | < 5% |
+| SLA-Entwürfe für die kritischsten BITS erstellt | mind. 3 |
 
 </details>
 
