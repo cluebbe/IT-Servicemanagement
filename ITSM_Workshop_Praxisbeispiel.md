@@ -23,7 +23,7 @@ In den letzten sechs Monaten häufen sich Beschwerden aus dem Business:
 ### Organisationsstruktur IT (vereinfacht)
 
 ```
-CIO
+CIO (= IT-Leitung)
 ├── Infrastruktur & Betrieb (60 MA)
 │   ├── Datacenter & Storage
 │   ├── Netzwerk
@@ -196,6 +196,7 @@ Berücksichtigt dabei:
 - Wann wird eine **hierarchische Eskalation** ausgelöst?
 - Welche **Prozessrollen** sind beteiligt?
 - Welche **Zeitlimiten** (Reaction Time, Resolution Time) schlagt ihr vor?
+- Benennt die Stationen der **hierarchischen Eskalationskette** anhand des Organigramms (siehe Ausgangslage). Wer steht an deren Spitze, wofür steht das Kürzel **CIO**, und welche Entscheidungen dürfen *nur* auf dieser Ebene getroffen werden?
 
 > **Wichtig – funktionale vs. hierarchische Eskalation:** Diese beiden Begriffe meinen unterschiedliche Dinge und dürfen nicht verwechselt werden.
 >
@@ -223,8 +224,15 @@ Berücksichtigt dabei:
 **Typische Prozessrollen im Incident Management:**
 - **Incident-Erfasser** (Service Desk Agent): Ticket aufnehmen, Basisdaten erfassen
 - **Incident Analyst:** Analyse und Behebung
-- **Incident Queue Manager:** Sicherstellt, dass Incidents korrekt zugewiesen werden und SLA-Zeiten nicht überschritten werden
+- **Incident Queue Manager:** Stellt sicher, dass Incidents korrekt zugewiesen werden und SLA-Zeiten nicht überschritten werden
 - **Incident Manager:** Koordiniert bei Maj. Incidents, kommuniziert ans Business
+
+**Hierarchische Eskalationskette (laut Organigramm):**
+- **Incident Manager** → koordiniert den Major Incident, ruft die nächste Stufe
+- **IT-Leiter** (Leitung des betroffenen Bereichs, z.B. Anwendungsbetrieb) → setzt Bereichsressourcen frei
+- **CIO** (*Chief Information Officer*), im Theorieskript auch **(oberste) IT-Leitung** genannt → oberste IT-Führung in der Geschäftsleitung; **Spitze der Kette**. *Hinweis: nicht zu verwechseln mit dem **IT-Leiter** eine Stufe darunter – dieser leitet nur den betroffenen Bereich, während die **IT-Leitung/CIO** die gesamte Informatik verantwortet.*
+
+Nur auf CIO-Ebene zu entscheiden (Beispiele): Aktivierung des Geschäfts-Notfallbetriebs/Fallback, Kommunikation an Vorstand und **Aufsichtsbehörde**, Freigabe grosser Budgets oder Hersteller-Notfallverträge, Eskalation als Krise mit Unternehmensreichweite. Der CIO **löst die Störung nicht technisch** (das bleibt bei L3), sondern entscheidet auf der geschäftlichen Achse.
 
 **Empfohlene SLA-Ziele für Priority 1:**
 - Reaction Time: 15 Minuten
