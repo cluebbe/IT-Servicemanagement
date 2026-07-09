@@ -146,6 +146,28 @@ CoreBanking 360 BITS
 
 ---
 
+### 🌟 Zusatzaufgabe 1.3 – Zweite Service-Abhängigkeitskarte & Single Points of Failure (optional)
+
+Erstellt analog zu Aufgabe 1.2 eine Service-Abhängigkeitskarte für den „Trading-Terminal BITS" und vergleicht sie mit der Karte von „CoreBanking 360 BITS". Welche Basis-IT-Services nutzen beide BITS gemeinsam? Was bedeutet das für das Ausfallrisiko?
+
+<details>
+<summary>💡 Hinweis / Kurzlösung 1.3</summary>
+
+```
+Trading-Terminal BITS
+  └── Anwendungsorientierte IT Services:  Trading Application Maintenance & Support
+  └── Erweiterte IT Services:             Market-Data-Feed IT Service
+  └── Basis-IT-Services:                  Platform IT Service, Storage IT Service, Network IT Service
+  └── Unterstützende IT Services:         Security IT Service, Event & Monitoring IT Service
+  └── End-User-orientierte IT Services:   Service Desk & Onsite
+```
+
+**Gemeinsame Basis-Services mit CoreBanking 360 BITS:** Platform, Storage und Network IT Service (sowie Security und Monitoring). Ein einzelnes physisches CI (z.B. das gemeinsam genutzte Storage-Array) kann dadurch **beide** BITS gleichzeitig lahmlegen – genau das Muster aus dem Szenario „blinder Serverausfall" (Modul 5), wo ein Ausfall 15 Anwendungen traf. Das zeigt, warum eine CMDB unternehmensweite Abhängigkeiten abbilden muss, nicht nur pro BITS isoliert.
+
+</details>
+
+---
+
 ## 🧩 Modul 2 – Incident Management & Problem Management
 
 ### Hintergrundinformation
@@ -325,6 +347,25 @@ Optional kann eine dritte Achse, der **Auswirkungsgrad** (Tab. 3.14), die Priori
 
 ---
 
+### 🌟 Zusatzaufgabe 2.4 – Zwei gleichzeitige P1-Incidents (optional)
+
+Um 08:20 Uhr fällt wie gewohnt CoreBanking 360 aus (P1). Um 08:25 Uhr meldet zusätzlich ein Trader, dass sein Terminal während der Handelszeit nicht mehr reagiert (ebenfalls P1, siehe Aufgabe 2.3). Beide Incidents landen gleichzeitig bei L1.
+
+1. Wie sollte der Service Desk die begrenzten L2/L3-Ressourcen auf die beiden P1-Tickets verteilen?
+2. Braucht es hier zusätzlich eine hierarchische Eskalation – und wenn ja, wozu (nicht zur technischen Lösung)?
+3. Welche Rolle strukturiert solche Ressourcenkonflikte in der Praxis?
+
+<details>
+<summary>💡 Hinweis / Kurzlösung 2.4</summary>
+
+1. Formal sind beide P1, aber der Business-Impact unterscheidet sich in der **Breite**: CoreBanking betrifft alle Filialen (>250 Nutzer), der Terminal-Ausfall nur einen Trader. Die knappe Spezialressource (L3) wird zuerst dem breiteren Impact zugewiesen; das zweite Ticket läuft parallel mit den vorhandenen L1/L2-Mitteln weiter.
+2. Ja – nicht um zu debuggen, sondern um zu entscheiden, ob zusätzliche externe Kapazität (z.B. Hersteller-Hotline, Verstärkung aus einem anderen Team) angefordert wird, damit keiner der beiden Incidents wegen des anderen verzögert wird.
+3. Der **Incident Queue Manager** (siehe Aufgabe 2.2) – er stellt sicher, dass beide Tickets korrekt zugewiesen bleiben und keines wegen des anderen die SLA-Zeiten reisst.
+
+</details>
+
+---
+
 ## 🧩 Modul 3 – Change Management
 
 ### Hintergrundinformation
@@ -451,6 +492,25 @@ Beim Rollout des **CoreBanking-Release 4.2** (ein Normal Change) sind mehrere Pr
 
 ---
 
+### 🌟 Zusatzaufgabe 3.4 – Change-Kollision im CAB (optional)
+
+Für dasselbe Wartungsfenster (Sa 06:00–08:00, siehe Aufgabe 4.1) werden zwei Normal Changes eingereicht: der CoreBanking-Release 4.2 (Aufgabe 3.3) und ein Firmware-Update des Switches „NETSW-DC-03", über den das Storage-Array „SAN-01" angebunden ist (siehe CMDB-Kette in Aufgabe 5.1).
+
+1. Warum ist das für den CAB eine Kollision, die er erkennen muss?
+2. Was würde eine gepflegte CMDB (Modul 5) dem CAB hier konkret liefern?
+3. Wie würdet ihr die beiden Changes zeitlich/inhaltlich entflechten?
+
+<details>
+<summary>💡 Hinweis / Kurzlösung 3.4</summary>
+
+1. Beide Changes betreffen dieselbe Infrastrukturkette (NETSW-DC-03 → SAN-01 → Storage ITS → … → CoreBanking 360 BITS). Ein Netzwerk-Firmware-Update im selben Fenster wie ein Applikations-Release erhöht das Risiko, dass bei einem Fehler nicht klar ist, welcher Change die Ursache ist, und erschwert einen sauberen Rollback.
+2. Die CMDB würde über die `verbunden mit`/`läuft auf`-Beziehungen automatisch anzeigen, dass beide Changes dasselbe CI berühren – der CAB erkennt die Kollision so **vor** der Freigabe statt erst beim nächsten Incident.
+3. Sequenziell statt parallel: z.B. das Netzwerk-Update zuerst in einem eigenen, kürzeren Fenster mit eigenem Test/Rollback durchführen; das CoreBanking-Release erst danach freigeben, wenn die Netzwerkbasis nachweislich stabil läuft.
+
+</details>
+
+---
+
 ## 🧩 Modul 4 – Service Level Management & SLA
 
 ### Hintergrundinformation
@@ -497,6 +557,28 @@ Füllt folgende Tabelle aus:
 > **Methodischer Hinweis:** Die Verfügbarkeit beim Night-Batch ist höher (99,8%), weil eine Unterbrechung der Nachtverarbeitung am Folgetag zu massiven Buchungsproblemen führt. Die kurze Wiederherstellungszeit von 1 Stunde ist daher ebenfalls kritisch.
 
 > **Berechnungsbeispiel:** Bei einer Service-Zeit von Mo–Fr 07:30–19:00 = 11,5h/Tag × ~22 Arbeitstage = 253h/Monat. 99,5% Verfügbarkeit = max. 0,5% Ausfall = **ca. 75 Minuten (1,25 Std.)** tolerierter Ausfall pro Monat.
+
+</details>
+
+---
+
+### 🌟 Zusatzaufgabe 4.2 – SLA für Trading-Terminal BITS (optional)
+
+Der Handelsraum ist laut Modul 1 eine 24×7-Variante mit höherer SLA-Klasse. Definiert analog zu Aufgabe 4.1 einen SLA-Entwurf für „Trading-Terminal BITS" mit durchgehendem Service während der Handelstage und leitet die maximale Ausfallzeit pro Monat rechnerisch her.
+
+<details>
+<summary>💡 Hinweis / Kurzlösung 4.2</summary>
+
+| SLA-Kriterium | Trading-Terminal BITS |
+|---|---|
+| Service-Zeit | Mo–Fr 00:00–24:00 (≈ 520 h/Monat bei ~22 Handelstagen à 24h abzüglich Wochenende) |
+| Verfügbarkeit/Monat | 99,9% |
+| Max. Ausfall/Monat | 520h × 0,1% ≈ **31 Minuten** |
+| Reaktionszeit P1 | 5 Minuten |
+| Wiederherstellungszeit P1 | 30 Minuten |
+| Wartungsfenster | nur Sa/So ausserhalb der Handelszeiten |
+
+**Einordnung:** Die Ausgangslage nennt explizit, dass Trader nach einem Passwort-Reset durchschnittlich **6 Stunden** ohne Zugriff sind. Gemessen an einem realistischen SLA (max. 30 Minuten Wiederherstellungszeit für P1) zeigt diese Rechnung, dass Cantara ihr eigenes – noch gar nicht definiertes – Serviceziel bereits um mehr als das Zehnfache verfehlt.
 
 </details>
 
@@ -574,6 +656,27 @@ Mit einer vollständig gepflegten CMDB wäre beim Ausfall des Storage-CI „SAN-
 - Welche Gruppen sofort proaktiv informiert werden müssen
 
 **Ergebnis:** Statt 2 Stunden blinder Reaktion hätte die IT innerhalb von 5 Minuten eine vollständige Impact-Liste gehabt und proaktiv kommunizieren können.
+
+</details>
+
+---
+
+### 🌟 Zusatzaufgabe 5.2 – Zweite Abhängigkeitskette & Single Point of Failure (optional)
+
+Bildet analog zu Aufgabe 5.1 Punkt 3 die Abhängigkeitskette für „Trading-Terminal BITS" ab (nutzt die Struktur aus Zusatzaufgabe 1.3) und markiert, welche CIs sich die Ketten von „CoreBanking 360 BITS" und „Trading-Terminal BITS" teilen. Was bedeutet ein gemeinsames CI für die Priorisierung eines Incidents auf diesem CI?
+
+<details>
+<summary>💡 Hinweis / Kurzlösung 5.2</summary>
+
+```
+NETSW-DC-03 (HW, Ebene 5)  --[verbunden mit]-->  SAN-01 (HW, Ebene 5)
+SAN-01 (HW, Ebene 5)       --[läuft auf]-->       Storage ITS (Ebene 4)
+Storage ITS (Ebene 4)      --[hängt ab von]-->    Market-Data-Feed ITS (Ebene 3)
+Market-Data-Feed ITS (Eb.3)--[hängt ab von]-->    Trading AMS ITS (Ebene 2)
+Trading AMS ITS (Eb.2)     --[hängt ab von]-->    Trading-Terminal BITS (Ebene 1)
+```
+
+**Gemeinsame CIs mit der CoreBanking-Kette (Aufgabe 5.1):** NETSW-DC-03, SAN-01 und Storage ITS. Ein Ausfall von „SAN-01" betrifft dadurch **zwei business-vitale BITS gleichzeitig**. Die Priorität, mit der ein Incident auf diesem einen CI behandelt wird, muss sich deshalb an der **höchsten** Kritikalität aller abhängigen BITS orientieren (hier: Business-vital, siehe Prioritätsmatrix Aufgabe 2.3) – ein Zusammenhang, den man erst durch eine gepflegte CMDB systematisch erkennt, statt wie im Ausgangsszenario durch Zufall über Anrufe der Filialen.
 
 </details>
 
@@ -686,6 +789,28 @@ Erstellt eine priorisierte **ITSM-Roadmap** für die nächsten 12 Monate der Can
 | Incident P1 Wiederherstellungszeit (Ø) | < 2 Stunden |
 | Incidents ohne Schliessungsnachweis nach 5 Tagen | < 5% |
 | SLA-Entwürfe für die kritischsten BITS erstellt | mind. 3 |
+
+</details>
+
+---
+
+### 🌟 Zusatzaufgabe 6.3 – Massnahmenplan für alle Prozesse (optional)
+
+Erweitert Punkt 5 aus Aufgabe 6.1 auf **alle sieben Prozesse** der Tabelle: Definiert für jeden Prozess mit Stufe „nicht begonnen" oder „vor Level 1" mindestens eine Massnahme pro unvollständigem Bereich und ordnet jede Massnahme einer Phase aus der Roadmap in Aufgabe 6.2 zu.
+
+<details>
+<summary>💡 Hinweis / Kurzlösung 6.3</summary>
+
+| Prozess | Bereich | Ist | Massnahme | Phase (→ 6.2) |
+|---|---|---|---|---|
+| Change Management | Doku | ✗ | Change-Typen (→ 3.1) und CAB-Kriterien (→ 3.2) schriftlich als Prozessbeschreibung festhalten | Phase 1 |
+| Change Management | Tool | ✗ | RfC-Erfassung und Freigabe-Workflow im Tool abbilden statt E-Mail/Zuruf | Phase 1 |
+| Change Management | Organisation | ◑ | CAB-Rollen (→ 3.2/3.3) verbindlich einzelnen Personen zuweisen | Phase 1 |
+| Problem Management | Doku/Prozess/Tool/Organisation | ✗ | KEDB einführen, Ursachenanalyse für wiederkehrende Incidents (→ 2.1) als festen Prozessschritt etablieren | Phase 1 |
+| Service Level Management | Doku/Prozess/Tool/Organisation | ✗ | SLA-Entwürfe aus Aufgabe 4.1 formal verabschieden und Reporting/Monitoring aufbauen | Phase 1 |
+| Service Catalog Management | Doku/Prozess/Tool/Organisation | ✗ | Servicekatalog auf Basis der BITS aus Aufgabe 1.1 aufbauen | Phase 2 |
+
+**Vorgehen:** Für die übrigen Prozesse (SACM, Service Request Management) lässt sich dieselbe Logik anwenden – die Bausteine dafür liefern die Teillösungen aus Aufgabe 5.1 bzw. der ursprünglichen Aufgabe 6.1.
 
 </details>
 
