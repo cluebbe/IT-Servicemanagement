@@ -522,7 +522,8 @@ Konzipiert eine vereinfachte **CMDB-Hierarchie** für die Cantara Bank AG. Defin
 
 1. Welche **CI-Typen** sollen erfasst werden? (mind. 5 Ebenen)
 2. Welche **Beziehungstypen** zwischen CIs sind relevant?
-3. Wie hätte eine funktionierende CMDB beim Szenario „blinder Serverausfall" geholfen?
+3. Bildet für das CI „SAN-01" die konkrete Abhängigkeitskette von Ebene 5 bis Ebene 1 ab – mit Pfeilen und je einem passenden Beziehungstyp aus Punkt 2 pro Pfeil.
+4. Wie hätte eine funktionierende CMDB beim Szenario „blinder Serverausfall" geholfen?
 
 <details>
 <summary>💡 Teillösung Aufgabe 5.1</summary>
@@ -552,6 +553,18 @@ Ebene 5 – Technische CIs (Haupttypen: Hardware / Software / Gebäude)
 - `läuft auf` (Anwendung → Server → Storage)
 - `verbunden mit` (Server → Netzwerk-Switch)
 - `gehört zu` (CI → Leistungsbezieher-Gruppe)
+
+**Konkrete Abhängigkeitskette (Beispiel SAN-01):**
+
+```
+NETSW-DC-03 (HW, Ebene 5)  --[verbunden mit]-->  SAN-01 (HW, Ebene 5)
+SAN-01 (HW, Ebene 5)       --[läuft auf]-->       Storage ITS (Ebene 4)
+Storage ITS (Ebene 4)      --[hängt ab von]-->    Oracle Database ITS (Ebene 3)
+Oracle Database ITS (Eb.3) --[hängt ab von]-->    CoreBanking AMS ITS (Ebene 2)
+CoreBanking AMS ITS (Eb.2) --[hängt ab von]-->    CoreBanking 360 BITS (Ebene 1)
+```
+
+Erst durch diese konkrete Instanzierung wird sichtbar, dass nicht jeder Pfeil denselben Beziehungstyp trägt: Auf Ebene 5 verbindet `verbunden mit` gleichrangige Hardware-CIs (Switch ↔ Storage), während `läuft auf` den Sprung von Hardware zu einem Basis-IT-Service beschreibt und `hängt ab von` die Kette der IT-Service-Ebenen nach oben schliesst.
 
 **Nutzen beim Serverausfall:**
 Mit einer vollständig gepflegten CMDB wäre beim Ausfall des Storage-CI „SAN-01" (Ebene 5, Hardware) über die `hängt ab von`-Beziehungen sofort ersichtlich:
