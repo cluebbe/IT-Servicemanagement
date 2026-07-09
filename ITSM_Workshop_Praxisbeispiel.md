@@ -593,6 +593,16 @@ Bewertet, wie weit jeder Prozess der Cantara Bank AG im **Einführungsmodell des
 
 Bewertet je Prozess die vier Bereiche (✓ vorhanden / ◑ teilweise / ✗ fehlt) und bestimmt die **erreichte Stufe** (noch nicht begonnen · vor Level 1 · Level 1 · Level 2 · Level 3 · produktiv etabliert). Begründet mit konkreten Aussagen aus der Ausgangslage.
 
+> **Referenz-Skala (prozessunabhängiges Beispiel):**
+> - **Nicht begonnen:** Es gibt in keinem der vier Bereiche (Doku, Prozess, Tool, Organisation) nennenswerte Ansätze.
+> - **Vor Level 1:** Einzelne Bereiche sind ansatzweise vorhanden (z.B. eine gelebte Tätigkeit oder ein zuständiges Team), aber es fehlt eine vollständige, schriftliche Prozessbeschreibung.
+> - **Level 1:** Ein Prozess hat eine schriftliche Beschreibung mit Zielen, Schritten, Rollen und KPIs – wird aber noch manuell und ohne Tool-Unterstützung gelebt.
+> - **Level 2:** Zusätzlich sind Tools im Einsatz, Rollen sind konkreten Personen zugeteilt und KPIs werden per Rot/Gelb/Grün-Ampel überwacht.
+> - **Level 3:** Zusätzlich existieren Arbeitsinstruktionen (WINs) für einzelne Tätigkeiten sowie ein abgebildeter Tool-Workflow.
+> - **Produktiv etabliert:** Der Prozess läuft über alle vier Bereiche hinweg stabil, wird regelmässig überwacht und kontinuierlich verbessert.
+>
+> Bei Cantara erreicht aktuell kein Prozess Level 1 oder höher – das ist selbst ein zentrales Ergebnis dieser Aufgabe.
+
 | ITSM-Prozess | Doku | Prozess | Tool | Organisation | Erreichte Stufe |
 |---|---|---|---|---|---|
 | Incident Management | | | | | |
@@ -603,12 +613,14 @@ Bewertet je Prozess die vier Bereiche (✓ vorhanden / ◑ teilweise / ✗ fehlt
 | Service Request Management | | | | | |
 | Service Catalog Management | | | | | |
 
+**Punkt 5:** Wählt einen Prozess mit Stufe „nicht begonnen" oder „vor Level 1" aus. Definiert für jeden noch nicht vollständig erfüllten Einführungsbereich (Doku, Prozess, Tool, Organisation) eine konkrete Massnahme, um ihn auf die nächste Stufe zu bringen. Bereiche mit ✓ benötigen keine Massnahme.
+
 <details>
 <summary>💡 Teillösung Aufgabe 6.1</summary>
 
 | ITSM-Prozess | Doku | Prozess | Tool | Org. | Erreichte Stufe | Begründung |
 |---|---|---|---|---|---|---|
-| **Incident Management** | ✗ | ◑ | ◑ | ✓ | **vor Level 1** | Service Desk (Organisation) und Ticket-Aufnahme existieren, aber keine dokumentierte Prozessbeschreibung, keine Rollen/KPIs/Eskalation definiert |
+| **Incident Management** | ✗ | ◑ | ◑ | ✓ | **vor Level 1** | Service Desk als Organisationseinheit ist besetzt (Organisation ✓), Ticket-Aufnahme wird gelebt (Prozess ◑); es fehlt aber eine dokumentierte Prozessbeschreibung mit Rollen, KPIs und Eskalationsregeln (Doku ✗) |
 | **Problem Management** | ✗ | ✗ | ✗ | ✗ | **nicht begonnen** | Wiederkehrende Incidents werden nicht analysiert, keine KEDB |
 | **Change Management** | ✗ | ◑ | ✗ | ◑ | **vor Level 1** | Changes werden durchgeführt (Entwickler), aber unkontrolliert – ohne Dokumentation, Tool-Workflow oder CAB |
 | **Service Level Management** | ✗ | ✗ | ✗ | ✗ | **nicht begonnen** | Keine definierten SLAs, kein Monitoring/Reporting |
@@ -617,6 +629,15 @@ Bewertet je Prozess die vier Bereiche (✓ vorhanden / ◑ teilweise / ✗ fehlt
 | **Service Catalog Management** | ✗ | ✗ | ✗ | ✗ | **nicht begonnen** | Kein Servicekatalog vorhanden (explizit in der Ausgangslage) |
 
 **Kernbotschaft:** Nach dem Einführungsmodell des Skripts hat Cantara bei **keinem** Prozess auch nur **Level 1** (eine vollständige Prozessbeschreibung) erreicht. Drei Aktivitäten werden zwar *gelebt* (Incident, Change, Service Request), aber ohne Dokumentation, Prozessdefinition und Tool-Unterstützung – im Sinne des Modells sind sie damit **noch nicht eingeführt**, sondern bestenfalls „vor Level 1". Das unterstreicht den dringenden Handlungsbedarf.
+
+**Massnahmen für Incident Management (vor Level 1 → Level 1):**
+
+| Bereich | Ist | Massnahme |
+|---|---|---|
+| Doku | ✗ | Schriftliche Prozessbeschreibung erstellen (Ziele, Schritte, Rollen, KPIs) – nutzt dazu die Eskalationspfade (→ Aufgabe 2.2) und die Prioritätsmatrix (→ Aufgabe 2.3) |
+| Prozess | ◑ | Klassifizierung, Eskalation und Closure als verbindliche Prozessschritte festlegen statt Ad-hoc-Bearbeitung |
+| Tool | ◑ | Ticketsystem um Kategorisierung und Priorisierung gemäss Matrix erweitern |
+| Organisation | ✓ | Keine Massnahme nötig – Bereich bereits erfüllt (Service Desk mit fester Zuständigkeit vorhanden) |
 
 </details>
 
