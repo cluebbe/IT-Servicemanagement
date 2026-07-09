@@ -254,7 +254,7 @@ Berücksichtigt dabei:
 **Hierarchische Eskalationskette (laut Organigramm):**
 - **Incident Manager** → koordiniert den Major Incident, ruft die nächste Stufe
 - **IT-Leiter** (Leitung des betroffenen Bereichs, z.B. Anwendungsbetrieb) → setzt Bereichsressourcen frei
-- **CIO** (*Chief Information Officer*), im Theorieskript auch **(oberste) IT-Leitung** genannt → oberste IT-Führung in der Geschäftsleitung; **Spitze der Kette**. *Hinweis: nicht zu verwechseln mit dem **IT-Leiter** eine Stufe darunter – dieser leitet nur den betroffenen Bereich, während die **IT-Leitung/CIO** die gesamte Informatik verantwortet.*
+- **CIO** (*Chief Information Officer*), auch **(oberste) IT-Leitung** genannt → oberste IT-Führung in der Geschäftsleitung; **Spitze der Kette**. *Hinweis: nicht zu verwechseln mit dem **IT-Leiter** eine Stufe darunter – dieser leitet nur den betroffenen Bereich, während die **IT-Leitung/CIO** die gesamte Informatik verantwortet.*
 
 Nur auf CIO-Ebene zu entscheiden (Beispiele): Aktivierung des Geschäfts-Notfallbetriebs/Fallback, Kommunikation an Vorstand und **Aufsichtsbehörde**, Freigabe grosser Budgets oder Hersteller-Notfallverträge, Eskalation als Krise mit Unternehmensreichweite. Der CIO **löst die Störung nicht technisch** (das bleibt bei L3), sondern entscheidet auf der geschäftlichen Achse.
 
@@ -277,16 +277,16 @@ Nur auf CIO-Ebene zu entscheiden (Beispiele): Aktivierung des Geschäfts-Notfall
 
 In den bisherigen Aufgaben wurde mehrfach von einem **P1-Incident** gesprochen, ohne dass definiert ist, *was* einen Incident zu P1 macht. Genau diese Lücke schliesst ihr jetzt.
 
-Das Theorieskript empfiehlt zur Prioritätsbestimmung **Ansatz 1** (Abb. 3.20). Dieser kombiniert zwei Achsen, die sich direkt aus den BITS und der CMDB ableiten lassen:
+Zur Prioritätsbestimmung wird **Ansatz 1** empfohlen. Dieser kombiniert zwei Achsen, die sich direkt aus den BITS und der CMDB ableiten lassen:
 
 > **Priorität = Kritikalität des BITS × Anzahl betroffener Leistungsbezieher (Benutzer)**
 >
 > - **Kritikalität des BITS:** aus dem SLA – *Business-vital → Business-kritisch → Business-wichtig → Business-neutral*
 > - **Anzahl betroffener Benutzer:** Klassen *1–30 / 31–80 / 81–250 / >250*
 >
-> *Hinweis: Das Skript nennt auch einen Ansatz 2 (Dringlichkeit × Auswirkung), rät davon aber ab, weil die „Dringlichkeit" aus Anwendersicht fast immer hoch ist und damit schwer objektivierbar bleibt.*
+> *Hinweis: Alternativ existiert auch ein Ansatz 2 (Dringlichkeit × Auswirkung), rät davon aber ab, weil die „Dringlichkeit" aus Anwendersicht fast immer hoch ist und damit schwer objektivierbar bleibt.*
 
-Optional kann eine dritte Achse, der **Auswirkungsgrad** (Tab. 3.14), die Priorität abschwächen:
+Optional kann eine dritte Achse, der **Auswirkungsgrad**, die Priorität abschwächen:
 
 | Auswirkungsgrad | Bedeutung | Wirkung |
 |---|---|---|
@@ -324,7 +324,7 @@ Optional kann eine dritte Achse, der **Auswirkungsgrad** (Tab. 3.14), die Priori
 | **Business-wichtig** | **P3** | **P3** | **P2** | **P2** |
 | **Business-neutral** | **P4** | **P4** | **P3** | **P3** |
 
-> Das Skript betont ausdrücklich: *Welche Kombination welche Priorität ergibt, ist unternehmensspezifisch* und muss im Incident-Prozess festgelegt werden. Obige Belegung ist eine plausible Ausprägung für die Cantara Bank, kein fixer Standard.
+> Wichtig: *Welche Kombination welche Priorität ergibt, ist unternehmensspezifisch* und muss im Incident-Prozess festgelegt werden. Obige Belegung ist eine plausible Ausprägung für die Cantara Bank, kein fixer Standard.
 
 **Teil B – Einordnung:**
 
@@ -610,7 +610,7 @@ Konzipiert eine vereinfachte **CMDB-Hierarchie** für die Cantara Bank AG. Defin
 <details>
 <summary>💡 Teillösung Aufgabe 5.1</summary>
 
-**CI-Hierarchie (von oben nach unten):** Die Ebenen folgen dem Service-Modell und den **ITS-Kategorien aus Aufgabe 1.2**; die unterste Ebene bildet die technischen CIs nach den **CI-Haupttypen des Skripts** (Service, Hardware, Software, Gebäude) ab.
+**CI-Hierarchie (von oben nach unten):** Die Ebenen folgen dem Service-Modell und den **ITS-Kategorien aus Aufgabe 1.2**; die unterste Ebene bildet die technischen CIs nach den **CI-Haupttypen** (Service, Hardware, Software, Gebäude) ab.
 
 ```
 Ebene 1 – Business IT Service (BITS)
@@ -686,7 +686,7 @@ Trading AMS ITS (Eb.2)     --[hängt ab von]-->    Trading-Terminal BITS (Ebene 
 
 ### Aufgabe 6.1 – ITSM-Einführungsstand analysieren
 
-Bewertet, wie weit jeder Prozess der Cantara Bank AG im **Einführungsmodell des Skripts** (Abb. 2.1, Abschnitt 2.1) bereits gekommen ist. Das Modell unterscheidet vier **Einführungsbereiche** und – innerhalb der Definitionsphase – drei **Levels**:
+Bewertet, wie weit jeder Prozess der Cantara Bank AG im **Einführungsmodell** bereits gekommen ist. Das Modell unterscheidet vier **Einführungsbereiche** und – innerhalb der Definitionsphase – drei **Levels**:
 
 > **Einführungsbereiche:** Dokumentation · Prozess · Tool/Hilfsmittel · Organisation
 >
@@ -731,7 +731,7 @@ Bewertet je Prozess die vier Bereiche (✓ vorhanden / ◑ teilweise / ✗ fehlt
 | **Service Request Management** | ✗ | ◑ | ✗ | ◑ | **vor Level 1** | Anfragen werden bearbeitet, aber per E-Mail, unstrukturiert, ohne Prozess/Tool |
 | **Service Catalog Management** | ✗ | ✗ | ✗ | ✗ | **nicht begonnen** | Kein Servicekatalog vorhanden (explizit in der Ausgangslage) |
 
-**Kernbotschaft:** Nach dem Einführungsmodell des Skripts hat Cantara bei **keinem** Prozess auch nur **Level 1** (eine vollständige Prozessbeschreibung) erreicht. Drei Aktivitäten werden zwar *gelebt* (Incident, Change, Service Request), aber ohne Dokumentation, Prozessdefinition und Tool-Unterstützung – im Sinne des Modells sind sie damit **noch nicht eingeführt**, sondern bestenfalls „vor Level 1". Das unterstreicht den dringenden Handlungsbedarf.
+**Kernbotschaft:** Nach dem Einführungsmodell hat Cantara bei **keinem** Prozess auch nur **Level 1** (eine vollständige Prozessbeschreibung) erreicht. Drei Aktivitäten werden zwar *gelebt* (Incident, Change, Service Request), aber ohne Dokumentation, Prozessdefinition und Tool-Unterstützung – im Sinne des Modells sind sie damit **noch nicht eingeführt**, sondern bestenfalls „vor Level 1". Das unterstreicht den dringenden Handlungsbedarf.
 
 **Massnahmen für Incident Management (vor Level 1 → Level 1):**
 
@@ -756,11 +756,11 @@ Erstellt eine priorisierte **ITSM-Roadmap** für die nächsten 12 Monate der Can
 <details>
 <summary>💡 Teillösung Aufgabe 6.2</summary>
 
-**Empfohlene Einführungsreihenfolge (nach dem Phasenmodell des Skripts, Abschnitt 2.3):**
+**Empfohlene Einführungsreihenfolge (nach dem Phasenmodell):**
 
-> Das Skript gruppiert die Prozesse nach Wichtigkeit in drei Phasen (Phase 1 = „sehr wichtig", Phase 2 = „wichtig", Phase 3 = „empfehlenswert"). *Innerhalb* einer Phase gibt es laut Skript **keine bewertete Reihenfolge** – die zeitliche Sequenzierung legt das Unternehmen anhand seiner Schmerzpunkte fest.
+> Das Phasenmodell gruppiert die Prozesse nach Wichtigkeit in drei Phasen (Phase 1 = „sehr wichtig", Phase 2 = „wichtig", Phase 3 = „empfehlenswert"). *Innerhalb* einer Phase gibt es **keine bewertete Reihenfolge** – die zeitliche Sequenzierung legt das Unternehmen anhand seiner Schmerzpunkte fest.
 
-**Phase 1 – Fundament („sehr wichtig"):** Alle sechs Kernprozesse gehören laut Skript in Phase 1:
+**Phase 1 – Fundament („sehr wichtig"):** Alle sechs Kernprozesse gehören in Phase 1:
 1. **Service Level Management** – mind. rudimentär, damit die IT weiss, was der Leistungsbezieher fordert.
 2. **Change Management** – sofortiger Schutz vor unkontrollierten Änderungen (CAB).
 3. **Service Asset & Configuration Management** – CMDB als Grundlage für Impact-Analysen.
@@ -772,13 +772,13 @@ Erstellt eine priorisierte **ITSM-Roadmap** für die nächsten 12 Monate der Can
 
 **Phase 2 – Ausbau („wichtig"):**
 - **Service Catalog Management** – Leistungsbezieher wissen, was sie bestellen können.
-- *(weitere Skript-Phase-2-Prozesse ausserhalb des Workshop-Scopes: u.a. IT Financial, Release, Information Security, Availability, Capacity, Operational Level, Event, Access, Risk Management)*
+- *(weitere Phase-2-Prozesse ausserhalb des Workshop-Scopes: u.a. IT Financial, Release, Information Security, Availability, Capacity, Operational Level, Event, Access, Risk Management)*
 
 **Phase 3 – Optimierung („empfehlenswert"):**
 - **Continual Improvement** – fortlaufende Optimierung über KPI-Reviews.
 - *(weitere: Business Relationship, Service Portfolio, Supplier, Knowledge, IT Architecture Management …)*
 
-> **Abweichungs-Hinweis:** Eine rein „Quick-Wins"-orientierte Roadmap würde den **Servicekatalog** gern vorziehen (schnell sichtbarer Nutzen) und **Service Request Management** nach hinten schieben. Das Skript ordnet beides anders ein (Catalog → Phase 2, Service Request → Phase 1). Diese Roadmap folgt bewusst der **Skript-Einteilung**.
+> **Abweichungs-Hinweis:** Eine rein „Quick-Wins"-orientierte Roadmap würde den **Servicekatalog** gern vorziehen (schnell sichtbarer Nutzen) und **Service Request Management** nach hinten schieben. Diese Einteilung ordnet beides anders ein (Catalog → Phase 2, Service Request → Phase 1). Diese Roadmap folgt bewusst dieser **Phaseneinteilung**.
 
 **KPIs für die ersten 3 Monate (Fokus Phase-1-Start: Change + Incident + SLM):**
 

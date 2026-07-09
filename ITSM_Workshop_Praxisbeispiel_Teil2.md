@@ -102,7 +102,7 @@ Ordnet den sieben aus Teil 1 bekannten ITSM-Prozessen je einen **IT Process Owne
 | **Service Request Management** | IT-Governance & Prozesse | Service Desk Teamleiter | Anfragen laufen organisatorisch über den Service Desk |
 | **Service Catalog Management** | IT-Governance & Prozesse | SLA-Verantwortlicher (Doppelfunktion mit SLM) | Katalog und SLAs hängen inhaltlich eng zusammen (siehe Modul 10) |
 
-> **Hinweis:** Cantaras Organigramm ist bewusst vereinfacht (nur 3 Bereiche statt der im Skript gezeigten 6 Organisationsbereiche Architektur/Qualität, Entwicklung, Betrieb, Support, Account/Service Management, Stab). Andere plausible Zuordnungen sind möglich – wichtig ist die Begründung, nicht eine „richtige" Lösung.
+> **Hinweis:** Cantaras Organigramm ist bewusst vereinfacht (nur 3 Bereiche statt der klassischen 6 Organisationsbereiche Architektur/Qualität, Entwicklung, Betrieb, Support, Account/Service Management, Stab). Andere plausible Zuordnungen sind möglich – wichtig ist die Begründung, nicht eine „richtige" Lösung.
 
 </details>
 
@@ -110,7 +110,7 @@ Ordnet den sieben aus Teil 1 bekannten ITSM-Prozessen je einen **IT Process Owne
 
 ### 🌟 Zusatzaufgabe 7.2 – Eskalation bei Prozessverletzung (optional)
 
-Ein Entwickler aus der Anwendungsentwicklung & -betrieb spielt wiederholt Notfall-Änderungen direkt ein, ohne den Change Manager zu informieren (vgl. Ausgangslage). Der Change Manager (IT Process Manager) hat ihn bereits zweimal erfolglos direkt angesprochen. Wie sollte er laut Skript weiter vorgehen?
+Ein Entwickler aus der Anwendungsentwicklung & -betrieb spielt wiederholt Notfall-Änderungen direkt ein, ohne den Change Manager zu informieren (vgl. Ausgangslage). Der Change Manager (IT Process Manager) hat ihn bereits zweimal erfolglos direkt angesprochen. Wie sollte er weiter vorgehen?
 
 <details>
 <summary>💡 Hinweis / Kurzlösung 7.2</summary>
@@ -125,7 +125,7 @@ Der Change Manager eskaliert das Problem an seinen **IT Process Owner** (Bereich
 
 ### Hintergrundinformation
 
-Viele ITSM-Einführungen scheitern, weil sie in der **obersten Führungsebene nicht genügend verankert** sind. Ein echtes Management-Commitment besteht laut Skript, wenn:
+Viele ITSM-Einführungen scheitern, weil sie in der **obersten Führungsebene nicht genügend verankert** sind. Ein echtes Management-Commitment besteht, wenn:
 
 - IT Service Management in der IT-Vision und IT-Strategie aufgeführt ist
 - die obere IT-Führungsebene sich aktiv um das ITSM-„Marketing" kümmert – nicht nur intern, auch beim Leistungsbezieher
@@ -159,7 +159,7 @@ Der CIO der Cantara Bank AG hat den Massnahmenplan aus der Ist-Analyse (Teil 1) 
 | Ressourcen (Personal, Budget, Zeit) bereitgestellt | ✗ – „dafür brauchen wir kein eigenes Projekt" widerspricht dem |
 | Mittleres Management übernimmt Ownership | ◑ – erst ansatzweise, siehe Modul 7 |
 
-**Ergebnis:** Aktuell fehlt das Commitment nahezu vollständig – die Aussagen des Bereichsleiters entsprechen wörtlich den Negativbeispielen aus dem Skript. Empfehlung an den CIO: ITSM explizit in die IT-Strategie aufnehmen, ein Einführungsprojekt mit eigenem Budget/Ressourcen aufsetzen (statt „nebenbei"), und das Business aktiv einbeziehen – insbesondere weil die Massnahmen aus Teil 1 (z.B. SLAs, Servicekatalog) den Leistungsbezieher direkt betreffen.
+**Ergebnis:** Aktuell fehlt das Commitment nahezu vollständig – die Aussagen des Bereichsleiters sind klassische Negativbeispiele einer fehlenden Verankerung. Empfehlung an den CIO: ITSM explizit in die IT-Strategie aufnehmen, ein Einführungsprojekt mit eigenem Budget/Ressourcen aufsetzen (statt „nebenbei"), und das Business aktiv einbeziehen – insbesondere weil die Massnahmen aus Teil 1 (z.B. SLAs, Servicekatalog) den Leistungsbezieher direkt betreffen.
 
 </details>
 
@@ -177,7 +177,7 @@ Nennt für zwei Mitarbeitergruppen der Cantara Bank AG (z.B. Service Desk Agente
 | Service Desk Agenten | Sorge vor mehr Kontrolle/Dokumentationsaufwand durch neue Eskalations- und Priorisierungsregeln (→ Aufgabe 2.2/2.3) | Frühzeitig einbeziehen, zeigen, dass klare Regeln auch **entlasten** (keine Einzelfallentscheidungen mehr), gezielte Schulung |
 | Entwickler (Anwendungsentwicklung) | Wahrnehmung, dass Change Management ihre gewohnte Schnelligkeit bei Notfall-Änderungen bremst | Kommunizieren, dass der Emergency-Change-Pfad (→ Aufgabe 3.1/3.2) weiterhin schnelles Handeln erlaubt, nur mit nachträglicher Dokumentation statt völliger Kontrolllosigkeit |
 
-**Nutzen laut Skript:** Gutes Veränderungsmanagement schafft Verständnis und Akzeptanz, macht aus Betroffenen Beteiligte, verhindert einen grösseren Leistungseinbruch während der Einführung und sichert einen nachhaltigen Veränderungsprozess.
+**Nutzen:** Gutes Veränderungsmanagement schafft Verständnis und Akzeptanz, macht aus Betroffenen Beteiligte, verhindert einen grösseren Leistungseinbruch während der Einführung und sichert einen nachhaltigen Veränderungsprozess.
 
 </details>
 
@@ -302,7 +302,7 @@ Managed-Anwendungen
 
 ### 🌟 Zusatzaufgabe 10.2 – Leistungserbringer-Ansicht (optional)
 
-Skizziert ergänzend die **Leistungserbringer-Ansicht** (IT-interne Sicht) für „CoreBanking 360 BITS", basierend auf der ITS-Dekomposition aus Teil 1, Aufgabe 1.2. Wozu kann diese Ansicht laut Skript genutzt werden?
+Skizziert ergänzend die **Leistungserbringer-Ansicht** (IT-interne Sicht) für „CoreBanking 360 BITS", basierend auf der ITS-Dekomposition aus Teil 1, Aufgabe 1.2. Wozu kann diese Ansicht genutzt werden?
 
 <details>
 <summary>💡 Hinweis / Kurzlösung 10.2</summary>
@@ -315,7 +315,7 @@ Leistungserbringer-Ansicht – IT Services für CoreBanking 360 BITS
   └─ Unterstützend: Security IT Service, Event & Monitoring IT Service
 ```
 
-**Nutzen laut Skript:** Diese Ansicht reflektiert das gesamte IT-interne Dienstleistungsangebot. Lösungs-Designer oder Architekten können darauf basierend – wie mit einem Baukastensystem – die passenden IT-Service-Varianten auswählen, um die Anforderungen eines **neuen** Business IT Service zusammenzustellen, ohne jedes Mal bei null zu beginnen.
+**Nutzen:** Diese Ansicht reflektiert das gesamte IT-interne Dienstleistungsangebot. Lösungs-Designer oder Architekten können darauf basierend – wie mit einem Baukastensystem – die passenden IT-Service-Varianten auswählen, um die Anforderungen eines **neuen** Business IT Service zusammenzustellen, ohne jedes Mal bei null zu beginnen.
 
 </details>
 
