@@ -589,6 +589,8 @@ Bewertet, wie weit jeder Prozess der Cantara Bank AG im **Einführungsmodell des
 >
 > **Definitions-Levels:** Level 1 = Prozessbeschreibung (Ziele, Schritte, Rollen, KPIs) · Level 2 = Umsetzungsgrundlagen (Tools, Rollen-Zuteilung, Rot/Gelb/Grün-KPIs) · Level 3 = Arbeitsinstruktionen (WINs) + Tool-Workflow
 
+> **Begriffe:** **KPI** (Key Performance Indicator) = messbare Erfolgsgrösse, mit der die Leistung bzw. Zielerreichung eines Prozesses überwacht wird (z.B. mit Rot/Gelb/Grün-Schwellwerten). **WIN** (Work Instruction) = detaillierte, schrittweise Arbeitsanweisung, die einer Rolle konkret vorgibt, wie sie eine einzelne Tätigkeit innerhalb eines Prozessschritts im Tool auszuführen hat.
+
 Bewertet je Prozess die vier Bereiche (✓ vorhanden / ◑ teilweise / ✗ fehlt) und bestimmt die **erreichte Stufe** (noch nicht begonnen · vor Level 1 · Level 1 · Level 2 · Level 3 · produktiv etabliert). Begründet mit konkreten Aussagen aus der Ausgangslage.
 
 | ITSM-Prozess | Doku | Prozess | Tool | Organisation | Erreichte Stufe |
