@@ -177,9 +177,11 @@ Nennt für zwei Mitarbeitergruppen der Cantara Bank AG (z.B. Service Desk Agente
 | Gruppe | Typischer Widerstand | Reaktion des Veränderungsmanagements |
 |---|---|---|
 | Service Desk Agenten | Sorge vor mehr Kontrolle/Dokumentationsaufwand durch neue Eskalations- und Priorisierungsregeln (→ Aufgabe 2.2/2.3) | Frühzeitig einbeziehen, zeigen, dass klare Regeln auch **entlasten** (keine Einzelfallentscheidungen mehr), gezielte Schulung |
-| Entwickler (Anwendungsentwicklung) | Wahrnehmung, dass Change Management ihre gewohnte Schnelligkeit bei Notfall-Änderungen bremst | Kommunizieren, dass der Emergency-Change-Pfad (→ Aufgabe 3.1/3.2) weiterhin schnelles Handeln erlaubt, nur mit nachträglicher Dokumentation statt völliger Kontrolllosigkeit |
+| Entwickler (Anwendungsentwicklung) | Wahrnehmung, dass der neu eingeführte (ITIL-)Change-Management-**Prozess** (→ Modul 3) ihre gewohnte Schnelligkeit bei Notfall-Änderungen bremst | Kommunizieren, dass der Emergency-Change-Pfad (→ Aufgabe 3.1/3.2) weiterhin schnelles Handeln erlaubt, nur mit nachträglicher Dokumentation statt völliger Kontrolllosigkeit |
 
 **Nutzen:** Gutes Veränderungsmanagement schafft Verständnis und Akzeptanz, macht aus Betroffenen Beteiligte, verhindert einen grösseren Leistungseinbruch während der Einführung und sichert einen nachhaltigen Veränderungsprozess.
+
+> **Begriffsklärung:** „Change Management" (ITIL-**Prozess**, Modul 3: CAB, RFC, Change-Klassen) und „Veränderungsmanagement" (organisatorische **Begleitung** der ITSM-Einführung durch Kommunikation, Schulung, Stakeholder-Einbezug) sind zwei unterschiedliche Disziplinen, die im Deutschen sprachlich leicht verwechselt werden – im obigen Beispiel ist der *Widerstand* gegen den Change-Management-Prozess gerichtet, die *Reaktion* darauf kommt vom Veränderungsmanagement.
 
 </details>
 
