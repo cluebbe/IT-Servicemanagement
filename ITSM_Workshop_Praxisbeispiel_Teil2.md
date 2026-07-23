@@ -1,7 +1,7 @@
 # 🏦 ITSM Workshop: Praxisfall „Cantara Bank AG" – Teil 2
 
 > **Zielgruppe:** Teilnehmende mit Grundkenntnissen in IT Service Management  
-> **Dauer:** ca. 2–3 Stunden  
+> **Dauer:** ca. 4–5 Stunden  
 > **Format:** Gemischte Einzel- und Gruppenaufgaben mit ausklappbaren Teillösungen  
 > **Hinweis:** Dieser Teil ist **eigenständig** aufgebaut. Er kann unabhängig von Teil 1 besucht werden – alle dafür nötigen Fakten aus der Unternehmensanalyse sind unten enthalten. Wer Teil 1 bereits absolviert hat, findet einige dieser Fakten als bekannte Ergebnisse wieder.
 
@@ -327,6 +327,166 @@ Leistungserbringer-Ansicht – IT Services für CoreBanking 360 BITS
 
 ---
 
+## 🧩 Modul 11 – Service Request Management
+
+### Hintergrundinformation
+
+Der **Service Request Management (SRM)-Prozess** wickelt **standardisierte, wiederkehrende Anfragen** der Leistungsbezieher ab – zur Abgrenzung: Incident Management behandelt eine ungeplante **Störung**, Requirement Management ein **nicht standardisiertes** Bedürfnis (z.B. eine neue Applikationsfunktion). Alle drei sind eigenständige Eingangskanäle vom Business zur IT.
+
+Zwei Anliegentypen werden unterschieden:
+- **Auftragsanliegen:** hat eine definierte Reaktions- und **Erbringungszeit**, z.B. Passwort-Reset, Zugriffsrechte-Mutation, Mailbox-Erweiterung, Arbeitsplatz-Installation.
+- **Informationsanliegen:** Statusanfragen oder „How do I"-Fragen.
+
+Prozessschritte: Service-Request-Katalog erstellen & warten → Request eröffnen → genehmigen → ausführen/weiterleiten → schliessen → überwachen/rapportieren.
+
+Wichtiges Prinzip: Auftragsanliegen gelten als **Standard Change (Kategorie 5)** – sie werden **einmalig** über den Change-Management-Prozess freigegeben (→ Modul 3) und laufen danach als im Voraus genehmigt, ohne dass jeder einzelne Request nochmals das CAB durchläuft.
+
+---
+
+### Aufgabe 11.1 – Service Request für den Trader-Passwort-Reset gestalten
+
+Erinnerung Ausgangslage: *„Trader im Handelsraum erhalten nach einem Passwort-Reset durchschnittlich 6 Stunden keinen Zugriff auf ihr Trading-Terminal."* In Teil 1, Aufgabe 3.1 wurde der Passwort-Reset bereits als **Standard Change** eingestuft.
+
+1. Ordnet den Passwort-Reset einem der beiden SRM-Anliegentypen zu und begründet.
+2. Definiert eine angemessene **Erbringungszeit** für den Passwort-Reset im Handelsraum und begründet unter Berücksichtigung, dass das Trading-Terminal BITS zur höchsten SLA-Klasse gehört (24×7, business-vital).
+3. Beschreibt, wer den Request typischerweise genehmigen muss, und warum bei Passwort-Resets ein vereinfachter oder automatisierter Genehmigungsschritt sinnvoll ist.
+
+<details>
+<summary>💡 Teillösung Aufgabe 11.1</summary>
+
+1. **Auftragsanliegen** – klar definierbare Reaktions-/Erbringungszeit und ein Standardablauf, im Gegensatz zu einer offenen Statusanfrage.
+2. Erbringungszeit z.B. **15 Minuten**, statt der aktuellen 6 Stunden – gerechtfertigt durch die hohe SLA-Klasse des Trading-Terminal BITS und den unmittelbaren Umsatzausfall während der Handelszeit bei fehlendem Zugriff.
+3. Genehmigung: in der Praxis oft automatisiert bzw. direkt durch den Service Desk (Identifikation z.B. via Rückruf oder Vorgesetzten-Bestätigung), da es sich um einen bereits im Voraus genehmigten Standard Change (Kategorie 5) handelt – ein Warten auf individuelle Managementfreigabe würde die geforderte kurze Erbringungszeit unmöglich machen.
+
+**Bezug:** Der aktuelle 6-Stunden-Missstand ist ein Symptom dafür, dass bei Cantara kein SRM-Prozess mit definierten Erbringungszeiten existiert – Anfragen laufen unstrukturiert per E-Mail (siehe Ausgangslage).
+
+</details>
+
+---
+
+### 🌟 Zusatzaufgabe 11.2 – Eingangskanäle unterscheiden (optional)
+
+Ordnet folgende Anliegen dem richtigen Eingangskanal zu: **Incident Management**, **Service Request Management** oder **Requirement Management**.
+
+| Anliegen | Kanal |
+|---|---|
+| CoreBanking 360 reagiert für alle Filialen nicht mehr | |
+| Ein Filialmitarbeiter benötigt 2 GB mehr Mailbox-Speicher | |
+| Das Business fordert eine neue Funktion „Multi-Currency-Konten" für CoreBanking | |
+| Ein Trader hat sein Passwort vergessen | |
+| Ein Mitarbeiter fragt nach dem Status seines letzten Tickets | |
+
+<details>
+<summary>💡 Hinweis / Kurzlösung 11.2</summary>
+
+- CoreBanking-Totalausfall → **Incident Management** (ungeplante Störung)
+- Mailbox-Erweiterung → **Service Request Management** (standardisiertes Auftragsanliegen)
+- Multi-Currency-Konten-Funktion → **Requirement Management** (nicht standardisiertes, neues Bedürfnis mit Kosten-Nutzen-Abschätzung und Projekt-/Release-Planung)
+- Passwort vergessen → **Service Request Management** (Standard-Auftragsanliegen, siehe Aufgabe 11.1)
+- Statusanfrage → **Service Request Management** (Informationsanliegen)
+
+</details>
+
+---
+
+## 🧩 Modul 12 – Supplier Management
+
+### Hintergrundinformation
+
+Der **Supplier Management (SUM)-Prozess** überwacht und steuert die **IT-Lieferanten** eines Unternehmens. Prozessschritte: neue Lieferanten evaluieren & einführen → Lieferantenverträge verwalten (in einer Lieferanten- und Vertragsdatenbank, **SCDB**) → Leistung der Lieferanten überwachen → Verträge erneuern/beenden → überwachen & rapportieren.
+
+Wichtig: SUM grenzt sich vom **allgemeinen Einkaufsprozess** des Unternehmens ab – SUM deckt nur ab, was der generelle Einkauf nicht bereits regelt (z.B. die laufende Leistungsüberwachung anhand von OLAs).
+
+Zentraler Zusammenhang: Bezieht die IT eine Leistung von einem externen Lieferanten, wird dessen Leistung über ein **OLA (Operational Level Agreement)** vereinbart – analog zum SLA gegenüber dem Business, aber intern zwischen IT und Lieferant. Hält der Lieferant sein OLA nicht ein, kann das direkt zu einer **SLA-Verletzung** gegenüber dem Leistungsbezieher führen.
+
+---
+
+### Aufgabe 12.1 – OLA für den externen Service Desk definieren
+
+Aus der Ausgangslage: Cantaras **Service Desk (30 MA) ist extern vergeben**. Der Service Desk ist als L1 für die Einhaltung der Reaktionszeit P1 (**15 Minuten**, siehe SLA-Eckwerte oben bzw. Teil 1, Aufgabe 2.2/2.3) mitverantwortlich.
+
+1. Erklärt den Unterschied zwischen dem **SLA** (Cantara ↔ Business) und dem **OLA**, das mit dem externen Service-Desk-Anbieter vereinbart werden müsste.
+2. Welche konkrete OLA-Kennzahl müsste mit dem Lieferanten vereinbart werden, damit die 15-Minuten-Reaktionszeit realistisch eingehalten werden kann?
+3. Nennt zwei SUM-Prozessschritte, die Cantara gegenüber diesem Lieferanten aktiv betreiben müsste, die laut Ausgangslage aktuell offensichtlich fehlen.
+
+<details>
+<summary>💡 Teillösung Aufgabe 12.1</summary>
+
+1. Das **SLA** regelt die Leistung, die **Cantara IT dem Business** verspricht (z.B. Reaktionszeit P1 = 15 Min. für die Filialen). Das **OLA** regelt die interne Zulieferleistung, die der **externe Service-Desk-Anbieter der Cantara IT** liefern muss, damit die IT dieses SLA überhaupt einhalten kann – das OLA liegt inhaltlich „unter" dem SLA.
+2. Z.B. „Anrufannahmezeit L1 ≤ X Sekunden" plus „Ticket-Erstreaktion/Weiterleitung an L2 innerhalb von 10 Minuten" – so bleibt genug Zeitpuffer innerhalb der 15-Minuten-SLA-Reaktionszeit.
+3. **Leistung des Lieferanten überwachen** (aktuell offenbar nicht systematisch, da laut Ausgangslage die Bearbeitungszeit generell „unvorhersehbar" ist) und **Verwalten der Lieferantenverträge/SCDB** (nicht ersichtlich, dass ein vereinbartes OLA überhaupt dokumentiert und nachverfolgt wird).
+
+**Wichtig:** Ohne dieses OLA weiss Cantara nicht, ob eine SLA-Verletzung an einem eigenen Prozessproblem liegt oder am externen Lieferanten – eine zentrale Blindstelle, die SUM schliesst.
+
+</details>
+
+---
+
+### 🌟 Zusatzaufgabe 12.2 – Lieferanten in der CMDB (optional)
+
+Verknüpft Supplier Management mit SACM (→ Teil 1, Aufgabe 5.1): Der „blinde Serverausfall" traf 15 Business-Anwendungen, weil die IT nicht wusste, welche Anwendungen auf dem betroffenen Server liefen. Angenommen, der betroffene Server wird von einem externen Hardware-Lieferanten gewartet. Welche Information müsste zusätzlich in der CMDB hinterlegt sein, damit Supplier Management im Ernstfall sofort greifen kann?
+
+<details>
+<summary>💡 Hinweis / Kurzlösung 12.2</summary>
+
+Jedes **CI** (hier: der Server) müsste in der CMDB einen Verweis auf den zuständigen **Lieferanten/Vertrag** (z.B. aus der SCDB) sowie das zugehörige **OLA** (Reaktionszeit des Hardware-Supports) enthalten. So kann im Störungsfall sofort der richtige Lieferantenkontakt inkl. vereinbarter Reaktionszeit ermittelt werden, statt diesen erst manuell zu suchen – genau die Art von Zusammenhang, die laut Aufgabe 5.1 bei Cantara aktuell fehlt.
+
+</details>
+
+---
+
+## 🧩 Modul 13 – Information Security Management
+
+### Hintergrundinformation
+
+Der **Information Security Management (ISM)-Prozess** richtet die Informationssicherheit (inkl. IT-Sicherheit) auf die Unternehmensbedürfnisse aus und überwacht sie. Prozessschritte: Information Security Policy (ISP) erstellen & warten → Security-Bedrohungen/-Schwächen/-Risiken analysieren → Schutzmassnahmen planen & einführen → Schutzmassnahmen betreiben → Security Incidents behandeln → überwachen/auditieren/rapportieren.
+
+Die **ISP** gliedert sich meist in drei Ebenen: **Security Statement** (Grundsätze, vergleichbar mit einer Verfassung), **Security Standards** (vergleichbar mit Gesetzen) und **Security Procedures** (konkrete Umsetzungsanweisungen).
+
+Wichtige Abgrenzung: Ein **Security Incident** wird zwar wie jeder andere Incident zunächst über **Incident Management** wiederhergestellt (→ Modul 2) – zusätzlich erfolgt aber eine **vertiefte Analyse durch die Security-Spezialisten**, und nötigenfalls werden ISP oder Schutzmassnahmen angepasst.
+
+Rollen: **Security Manager** (Statement-/Standard-Teil der ISP, Audits, Ausbildung), **Security Analyst** (Procedure-Teil je Verantwortungsbereich, Risikoanalyse), **Security-Spezialist** (operativer Betrieb der Schutzmassnahmen).
+
+---
+
+### Szenario: Der weitergegebene Zugang
+
+Ein Trader ruft beim Service Desk an: Er habe letzte Woche sein Passwort telefonisch einem Kollegen mitgeteilt, der kurzfristig für ihn einspringen musste. Heute stellt er fest, dass unter seiner Benutzer-ID auch Transaktionen ausgeführt wurden, die er selbst nicht getätigt hat.
+
+---
+
+### Aufgabe 13.1 – Security Incident einordnen und behandeln
+
+1. Ist dies ein normaler Incident oder ein **Security Incident**? Begründet anhand der Hintergrundinformation.
+2. Welche zwei Prozesse sind an der Behandlung beteiligt, und was ist jeweils ihre Aufgabe dabei?
+3. Nennt zwei Punkte, die in Cantaras **Security Procedures** zum Thema Passwörter (Teil der ISP) explizit geregelt sein sollten, damit ein Vorfall wie dieser künftig verhindert wird.
+
+<details>
+<summary>💡 Teillösung Aufgabe 13.1</summary>
+
+1. **Security Incident** – die Weitergabe eines Passworts und dessen Nutzung durch eine nicht autorisierte Person ist eine klassische Verletzung der Information Security Policy (vergleichbar mit den Skript-Beispielen „gehackte Webseite" oder „gestohlener Laptop").
+2. **Incident Management** stellt zunächst den ordentlichen Betrieb wieder her (z.B. Passwort sofort zurücksetzen, betroffene Transaktionen prüfen lassen). **Information Security Management** übernimmt die vertiefte Analyse (Wie kam es dazu? Sind weitere Konten betroffen?) und entscheidet über Anpassungen an der ISP oder den Schutzmassnahmen.
+3. Z.B.: „Passwörter dürfen unter keinen Umständen mündlich oder schriftlich an Dritte weitergegeben werden – auch nicht an Vorgesetzte" sowie „Bei Abwesenheitsvertretung ist ein individueller Vertretungs-Zugang über den Service Desk zu beantragen" (Bezug zu Modul 11: das wäre selbst ein Service Request).
+
+**Bezug:** Auch das Passwort-Reset-Verfahren bei Cantara (→ Aufgabe 11.1) hat eine Sicherheitsdimension – die Identifikation des Antragstellers muss zweifelsfrei sichergestellt sein, sonst wird der SRM-Prozess selbst zum Einfallstor für genau diese Art von Vorfall.
+
+</details>
+
+---
+
+### 🌟 Zusatzaufgabe 13.2 – Security Statement entwerfen (optional)
+
+Entwerft in Stichworten die wichtigsten Punkte eines **Security Statements** (oberste ISP-Ebene) für die Cantara Bank AG – berücksichtigt dabei den Bankenkontext (hochsensible Kunden- und Transaktionsdaten, regulatorisches Umfeld).
+
+<details>
+<summary>💡 Hinweis / Kurzlösung 13.2</summary>
+
+Mögliche Punkte: Management-Statement zur Wichtigkeit der Informationssicherheit für das Vertrauen der Bankkunden; Zweck und Geltungsbereich (alle Mitarbeitenden, alle BITS); Definition, was geschützt wird (Kunden-, Transaktionsdaten, Handelsgeheimnisse); Verweis auf regulatorische Vorgaben (z.B. FINMA-Anforderungen im Schweizer Bankenumfeld); jährliche Revalidierung der Policy; Konsequenzen bei Verstoss (bis zur fristlosen Kündigung, siehe Szenario oben).
+
+</details>
+
+---
+
 ## 📝 Abschluss & Lernkontrolle
 
 ### Kernbegriffe – Kurzdefinitionen
@@ -339,6 +499,9 @@ Erkläre folgende Begriffe ohne Hilfsmittel in 1–2 Sätzen:
 4. **Service-Kennzahl vs. Prozess-Kennzahl**
 5. **Continual Improvement**
 6. **Service-Katalog**
+7. **Service Request vs. Requirement**
+8. **OLA (Operational Level Agreement)**
+9. **Security Incident**
 
 <details>
 <summary>💡 Musterdefinitionen</summary>
@@ -354,6 +517,12 @@ Erkläre folgende Begriffe ohne Hilfsmittel in 1–2 Sätzen:
 5. **Continual Improvement:** Ein fortlaufender, 7-schrittiger Verbesserungs- und Optimierungsprozess für die Informatikdienstleistungen, der auf gesammelten und analysierten Mess­daten aus Service- und Prozessebene aufbaut.
 
 6. **Service-Katalog:** Ein zentrales, aktuelles Verzeichnis aller angebotenen Business IT Services (und optional IT Services) inkl. Varianten, das Leistungsbeziehern die Übersicht und ggf. die Bestellung ermöglicht.
+
+7. **Service Request vs. Requirement:** Ein Service Request ist ein standardisiertes, wiederkehrendes Auftrags- oder Informationsanliegen mit definierter Erbringungszeit; ein Requirement ist ein nicht standardisiertes, neues Bedürfnis, das erst analysiert und einer Umsetzungsart (Projekt, Release, Change) zugeteilt werden muss.
+
+8. **OLA (Operational Level Agreement):** Eine interne Vereinbarung zwischen der IT und einem Lieferanten (oder einer anderen internen IT-Einheit), die eine für ein SLA nötige Zulieferleistung regelt – ohne eingehaltenes OLA kann das darüberliegende SLA gegenüber dem Business nicht garantiert werden.
+
+9. **Security Incident:** Ein Incident, der eine Verletzung der Information Security Policy darstellt (z.B. Passwort-Missbrauch, gestohlenes Gerät) – wird über Incident Management wiederhergestellt, zusätzlich aber vom Information Security Management vertieft analysiert.
 
 </details>
 
