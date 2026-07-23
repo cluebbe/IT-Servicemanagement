@@ -221,6 +221,8 @@ Ordnet folgende Kennzahlen der **Service-Ebene** oder der **Prozess-Ebene** zu u
 | Wiederherstellungszeit bei einem konkreten Ausfall | | |
 | Anzahl KEDB-Einträge pro Quartal | | |
 
+> **KEDB** (*Known Error Database*): Datenbank, in der Problem Management jeden **Known Error** dokumentiert – ein Problem mit identifizierter Grundursache und bekanntem Workaround/Lösung. Der Service Desk konsultiert die KEDB bei neuen Incidents, um wiederkehrende Störungen schneller zu beheben.
+
 <details>
 <summary>💡 Teillösung Aufgabe 9.1</summary>
 
