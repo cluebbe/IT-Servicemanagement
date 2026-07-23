@@ -37,6 +37,8 @@ CIO (= IT-Leitung)
     └── Service Desk (30 MA, extern vergeben)
 ```
 
+> **CIO** (*Chief Information Officer*), auch **(oberste) IT-Leitung** genannt → oberste IT-Führung in der Geschäftsleitung; verantwortet IT-Strategie, Budget und den gesamten IT-Bereich.
+
 ### Bereits identifizierte Business IT Services (Ergebnis aus Teil 1, Aufgabe 1.1)
 
 Für die Aufgaben in diesem Teil gelten folgende **fünf BITS** als gegeben:
