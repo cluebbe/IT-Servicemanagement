@@ -135,7 +135,10 @@ Viele ITSM-Einführungen scheitern, weil sie in der **obersten Führungsebene ni
 - die nötigen Ressourcen (Personal, Budget, Zeit) für Umsetzung und laufenden Betrieb bereitgestellt werden
 - das mittlere Management die **Ownership** der einzelnen Prozesse übernimmt und Kennzahlen nach oben rapportiert
 
-Zusätzlich braucht jede grössere Einführung ein **Veränderungsmanagement**, weil sie für viele Mitarbeitende Unsicherheit bedeutet. Eine oft zitierte Studie zeigt, dass die Produktivität während einer Veränderung von ca. 60% auf bis zu 15% einbrechen kann, bevor sie sich stabilisiert. Ein bekanntes Zitat dazu: *„Wenn Sie eine Transformationsbemühung starten, bekämpfen etwa 70 Prozent der Leute die Änderung oder sind ihr gegenüber gleichgültig eingestellt."*
+Zusätzlich braucht jede grössere Einführung ein **Veränderungsmanagement**, weil sie für viele Mitarbeitende Unsicherheit bedeutet. Verbreitete Erfahrungswerte gehen davon aus, dass die Produktivität während einer Veränderung von ca. 60 % auf bis zu 15 % einbrechen kann, bevor sie sich wieder stabilisiert – die sogenannte Kurve durch das „Tal der Tränen". Ein bekanntes Zitat dazu:
+
+> *„Wenn Sie eine Transformationsbemühung starten, bekämpfen etwa 70 Prozent der Leute die Änderung oder sind ihr gegenüber gleichgültig eingestellt."*
+> — Wayne Yetter, seinerzeit CEO Astra Merck
 
 ---
 
@@ -464,7 +467,7 @@ Ein Trader ruft beim Service Desk an: Er habe letzte Woche sein Passwort telefon
 <details>
 <summary>💡 Teillösung Aufgabe 13.1</summary>
 
-1. **Security Incident** – die Weitergabe eines Passworts und dessen Nutzung durch eine nicht autorisierte Person ist eine klassische Verletzung der Information Security Policy (vergleichbar mit den Skript-Beispielen „gehackte Webseite" oder „gestohlener Laptop").
+1. **Security Incident** – die Weitergabe eines Passworts und dessen Nutzung durch eine nicht autorisierte Person ist eine klassische Verletzung der Information Security Policy. Sie steht damit in einer Reihe mit typischen Security Incidents wie einer gehackten Webseite oder einem gestohlenen Laptop – anders als bei einer blossen Betriebsstörung ist hier die Vertraulichkeit verletzt.
 2. **Incident Management** stellt zunächst den ordentlichen Betrieb wieder her (z.B. Passwort sofort zurücksetzen, betroffene Transaktionen prüfen lassen). **Information Security Management** übernimmt die vertiefte Analyse (Wie kam es dazu? Sind weitere Konten betroffen?) und entscheidet über Anpassungen an der ISP oder den Schutzmassnahmen.
 3. Z.B.: „Passwörter dürfen unter keinen Umständen mündlich oder schriftlich an Dritte weitergegeben werden – auch nicht an Vorgesetzte" sowie „Bei Abwesenheitsvertretung ist ein individueller Vertretungs-Zugang über den Service Desk zu beantragen" (Bezug zu Modul 11: das wäre selbst ein Service Request).
 
