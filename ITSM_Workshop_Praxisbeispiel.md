@@ -333,11 +333,12 @@ Optional kann eine dritte Achse, der **Auswirkungsgrad**, die Priorität abschw�
 | CoreBanking 360 für alle Filialen komplett aus, Handel steht | Business-vital | >250 | **P1** |
 | Einzelner Trader ohne Terminal-Zugriff während Handelszeit | Business-vital (Trading) | 1–30 | **P1** |
 | Mailsystem bankweit stark verlangsamt, aber funktionsfähig | Business-wichtig | >250 | **P2** → mit Auswirkungsgrad *betriebsbehindernd* (+1): **P3** |
-| Defekter Drucker mit Ersatz daneben | Business-neutral | 1–30 | **P4** |
+| Defekter Drucker mit Ersatz daneben | Business-neutral | 1–30 (Nutzerkreis *dieses* Druckers im Back-Office) | **P4** |
 
 **Wichtige Erkenntnisse:**
 - **Die Service-Kritikalität dominiert, nicht die Benutzerzahl.** Ein *einzelner* Trader auf dem business-vitalen Trading-BITS ergibt **P1** – obwohl nur eine Person betroffen ist. Die naive Logik „wenige Nutzer = niedrige Priorität" greift zu kurz.
 - Umgekehrt bleibt ein business-neutraler Service (Drucker) auch **ohne** Workaround bei **P4** – der Ersatzdrucker daneben senkt die Priorität nicht weiter, weil P4 bereits die niedrigste Stufe ist.
+- **Gezählt wird der Nutzerkreis des betroffenen CI, nicht die Belegschaft.** Betroffen sind die Back-Office-Mitarbeitenden, die *diesen* Drucker verwenden – nicht alle 2 500 Mitarbeitenden der Bank. Wäre es der einzige Drucker der Bank, läge die Klasse bei *>250* und die Matrix ergäbe **P3**; der Auswirkungsgrad *geringe Einschränkung* (+2 Stufen dank Ersatzdrucker) brächte das Ticket wieder auf **P4**. Das Ergebnis ist hier also robust – die Benutzerklasse muss aber bewusst begründet werden.
 - Der **Auswirkungsgrad** wirkt nur abschwächend: Das langsame, aber nutzbare Mailsystem (betriebsbehindernd) rutscht von P2 auf P3 – bei Total-Ausfall bliebe es P2.
 - Die so ermittelte Priorität steuert direkt die **SLA-Ziele und den Eskalationspfad** aus Aufgabe 2.2: P1 = Reaction 15 min / Resolution 2 h + sofortige Eskalation, P4 = keine oder erst sehr späte Eskalation.
 
