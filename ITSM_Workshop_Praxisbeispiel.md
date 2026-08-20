@@ -284,7 +284,7 @@ Zur Prioritätsbestimmung wird **Ansatz 1** empfohlen. Dieser kombiniert zwei Ac
 > - **Kritikalität des BITS:** aus dem SLA – *Business-vital → Business-kritisch → Business-wichtig → Business-neutral*
 > - **Anzahl betroffener Benutzer:** Klassen *1–30 / 31–80 / 81–250 / >250*
 >
-> *Hinweis: Alternativ existiert auch ein Ansatz 2 (Dringlichkeit × Auswirkung), rät davon aber ab, weil die „Dringlichkeit" aus Anwendersicht fast immer hoch ist und damit schwer objektivierbar bleibt.*
+> *Hinweis: Alternativ existiert auch ein Ansatz 2 (Dringlichkeit × Auswirkung). Davon wird hier jedoch abgeraten, weil die „Dringlichkeit" aus Anwendersicht fast immer hoch ist und damit schwer objektivierbar bleibt.*
 
 Optional kann eine dritte Achse, der **Auswirkungsgrad**, die Priorität abschwächen:
 
@@ -337,7 +337,7 @@ Optional kann eine dritte Achse, der **Auswirkungsgrad**, die Priorität abschw�
 
 **Wichtige Erkenntnisse:**
 - **Die Service-Kritikalität dominiert, nicht die Benutzerzahl.** Ein *einzelner* Trader auf dem business-vitalen Trading-BITS ergibt **P1** – obwohl nur eine Person betroffen ist. Die naive Logik „wenige Nutzer = niedrige Priorität" greift zu kurz.
-- Umgekehrt ist ein business-neutraler Service (Drucker) selbst mit Workaround maximal P4.
+- Umgekehrt bleibt ein business-neutraler Service (Drucker) auch **ohne** Workaround bei **P4** – der Ersatzdrucker daneben senkt die Priorität nicht weiter, weil P4 bereits die niedrigste Stufe ist.
 - Der **Auswirkungsgrad** wirkt nur abschwächend: Das langsame, aber nutzbare Mailsystem (betriebsbehindernd) rutscht von P2 auf P3 – bei Total-Ausfall bliebe es P2.
 - Die so ermittelte Priorität steuert direkt die **SLA-Ziele und den Eskalationspfad** aus Aufgabe 2.2: P1 = Reaction 15 min / Resolution 2 h + sofortige Eskalation, P4 = keine oder erst sehr späte Eskalation.
 
