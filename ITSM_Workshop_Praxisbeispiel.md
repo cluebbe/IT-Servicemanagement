@@ -162,7 +162,7 @@ Trading-Terminal BITS
   └── End-User-orientierte IT Services:   Service Desk & Onsite
 ```
 
-**Gemeinsame Basis-Services mit CoreBanking 360 BITS:** Platform, Storage und Network IT Service (sowie Security und Monitoring). Ein einzelnes physisches CI (z.B. das gemeinsam genutzte Storage-Array) kann dadurch **beide** BITS gleichzeitig lahmlegen – genau das Muster aus dem Szenario „blinder Serverausfall" (Modul 5), wo ein Ausfall 15 Anwendungen traf. Das zeigt, warum eine CMDB unternehmensweite Abhängigkeiten abbilden muss, nicht nur pro BITS isoliert.
+**Gemeinsame Basis-Services mit CoreBanking 360 BITS:** Platform, Storage und Network IT Service (sowie Security und Monitoring). Ein einzelnes physisches CI (z.B. das gemeinsam genutzte Storage-Array) kann dadurch **beide** BITS gleichzeitig lahmlegen. Das zeigt, warum eine CMDB unternehmensweite Abhängigkeiten abbilden muss, nicht nur pro BITS isoliert.
 
 </details>
 
