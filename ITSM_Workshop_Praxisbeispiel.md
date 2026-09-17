@@ -353,7 +353,7 @@ Optional kann eine dritte Achse, der **Auswirkungsgrad**, die Priorität abschw�
 Um 08:20 Uhr fällt wie gewohnt CoreBanking 360 aus (P1). Um 08:25 Uhr meldet zusätzlich ein Trader, dass sein Terminal während der Handelszeit nicht mehr reagiert (ebenfalls P1, siehe Aufgabe 2.3). Beide Incidents landen gleichzeitig bei L1.
 
 1. Wie sollte der Service Desk die begrenzten L2/L3-Ressourcen auf die beiden P1-Tickets verteilen?
-2. Braucht es hier zusätzlich eine hierarchische Eskalation – und wenn ja, wozu (nicht zur technischen Lösung)?
+2. Braucht es hier zusätzlich eine hierarchische Eskalation – und wenn ja, wozu?
 3. Welche Rolle strukturiert solche Ressourcenkonflikte in der Praxis?
 
 <details>
